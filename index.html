@@ -1,0 +1,2646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CorpCruise - Luxury Corporate Mobility Solutions</title>
+    <meta name="description" content="Premium corporate transportation services with luxury fleet, professional chauffeurs, and IT-enabled tracking across major Indian cities.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Ultra-Premium Color Palette */
+            --primary-copper: #B8860B;
+            --primary-bronze: #CD7F32;
+            --accent-gold: #FFD700;
+            --deep-charcoal: #0F0F0F;
+            --charcoal: #1A1A1A;
+            --light-charcoal: #2A2A2A;
+            --warm-gray: #4A4A4A;
+            --light-gray: #F8F8F8;
+            --pure-white: #FFFFFF;
+            --cream: #FFF8DC;
+            --luxury-black: #000000;
+
+            /* Premium Gradients */
+            --gradient-copper: linear-gradient(135deg, #B8860B, #CD7F32, #DAA520);
+            --gradient-dark: linear-gradient(135deg, #000000, #1A1A1A, #2A2A2A);
+            --gradient-premium: linear-gradient(135deg, #B8860B 0%, #CD7F32 50%, #FFD700 100%);
+            --gradient-overlay: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 26, 26, 0.6));
+
+            /* Enhanced Shadows */
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 16px 48px rgba(0, 0, 0, 0.15);
+            --shadow-strong: 0 24px 64px rgba(0, 0, 0, 0.25);
+            --shadow-copper: 0 12px 40px rgba(184, 134, 11, 0.4);
+            --shadow-premium: 0 20px 60px rgba(184, 134, 11, 0.3);
+
+            /* Typography */
+            --font-primary: 'Inter', sans-serif;
+            --font-accent: 'Playfair Display', serif;
+
+            /* Spacing */
+            --section-padding: 140px 0;
+            --container-padding: 0 32px;
+            --border-radius: 20px;
+            --border-radius-large: 32px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--charcoal);
+            overflow-x: hidden;
+            background-color: var(--pure-white);
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        /* Enhanced Header with FIXED alignment */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+            z-index: 1000;
+            transition: all 0.4s ease;
+            padding: 0.1px 0;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-medium);
+            padding: 8px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 32px;
+        }
+
+        .nav__brand {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+            min-width: 0; /* Ensures proper text wrapping */
+        }
+
+        /* Premium Logo with FIXED sizing */
+        .logo {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            background: var(--gradient-premium);
+            box-shadow: var(--shadow-copper);
+            flex-shrink: 0; /* Prevents logo from shrinking */
+        }
+
+        .logo svg {
+            width: 85%;
+            height: 85%;
+            transform: scale(0.9);
+        }
+
+        /* FIXED brand info to ensure visibility */
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0; /* Allows proper text wrapping */
+            flex: 1;
+        }
+
+        .brand-info h1 {
+            font-family: var(--font-accent);
+            font-size: 32px;
+            font-weight: 800;
+            background: var(--gradient-premium);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+            letter-spacing: -1px;
+            white-space: nowrap; /* Prevents wrapping */
+        }
+
+        .brand-info .tagline {
+            font-size: 14px;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            margin-top: 2px;
+            white-space: nowrap; /* Prevents wrapping */
+        }
+
+        .nav__menu {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; /* Prevents menu from shrinking */
+        }
+
+        .nav__list {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            margin: 0;
+            margin-right: 48px;
+        }
+
+        .nav__link {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 12px 0;
+            white-space: nowrap;
+        }
+
+        .nav__link:hover {
+            color: var(--primary-copper);
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-premium);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav__link:hover::after {
+            width: 100%;
+        }
+
+        .nav__actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-shrink: 0;
+        }
+
+        .trust-badge {
+            background: rgba(184, 134, 11, 0.1);
+            color: var(--primary-copper);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            border: 2px solid rgba(184, 134, 11, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            white-space: nowrap;
+        }
+
+        .btn--primary {
+            background: var(--gradient-premium);
+            color: var(--pure-white);
+            box-shadow: var(--shadow-copper);
+        }
+
+        .btn--primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn--primary:hover::before {
+            left: 100%;
+        }
+
+        .btn--primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .btn--secondary {
+            background: transparent;
+            color: var(--primary-copper);
+            border: 3px solid var(--primary-copper);
+        }
+
+        .btn--secondary:hover {
+            background: var(--primary-copper);
+            color: var(--pure-white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-copper);
+        }
+
+        /* Mobile Navigation with FIXED alignment */
+        .nav__toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 32px;
+            height: 28px;
+            justify-content: space-between;
+        }
+
+        .nav__toggle span {
+            width: 100%;
+            height: 4px;
+            background: var(--primary-copper);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Premium Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-dark);
+            color: var(--pure-white);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="4" fill="%23B8860B" opacity="0.15"/><circle cx="800" cy="300" r="3" fill="%23CD7F32" opacity="0.2"/><circle cx="400" cy="700" r="3.5" fill="%23FFD700" opacity="0.1"/><circle cx="700" cy="150" r="2.5" fill="%23B8860B" opacity="0.25"/><circle cx="300" cy="500" r="3" fill="%23CD7F32" opacity="0.15"/></svg>');
+            animation: float 30s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+
+        .hero__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero__text {
+            max-width: 650px;
+        }
+
+        .hero__label {
+            background: rgba(184, 134, 11, 0.2);
+            color: var(--accent-gold);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 40px;
+            display: inline-block;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero__title {
+            font-family: var(--font-accent);
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            background: linear-gradient(135deg, var(--pure-white), #F0F0F0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero__title .highlight {
+            background: var(--gradient-premium);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero__description {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 48px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 520px;
+            font-weight: 400;
+        }
+
+        .hero__actions {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .hero__visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Enhanced Car Display */
+        .hero__car-display {
+            width: 100%;
+            max-width: 600px;
+            height: 450px;
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.15), rgba(205, 127, 50, 0.1));
+            border-radius: var(--border-radius-large);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 3px solid rgba(184, 134, 11, 0.3);
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+        }
+
+        .hero__car-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: calc(var(--border-radius-large) - 3px);
+            opacity: 0.95;
+            transition: all 0.4s ease;
+        }
+
+        .hero__car-display:hover .hero__car-image {
+            opacity: 1;
+            transform: scale(1.08);
+        }
+
+        .hero__car-overlay {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(184, 134, 11, 0.3);
+        }
+
+        .hero__car-name {
+            color: var(--pure-white);
+            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 6px;
+            font-family: var(--font-accent);
+        }
+
+        .hero__car-type {
+            color: var(--accent-gold);
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 600;
+        }
+
+        .hero__stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 80px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat__number {
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--accent-gold);
+            font-family: var(--font-accent);
+            margin-bottom: 8px;
+        }
+
+        .stat__label {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        /* Premium Services Section */
+        .services {
+            padding: var(--section-padding);
+            background: var(--light-gray);
+        }
+
+        .section__header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section__label {
+            background: rgba(184, 134, 11, 0.1);
+            color: var(--primary-copper);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 24px;
+            display: inline-block;
+            border: 2px solid rgba(184, 134, 11, 0.2);
+        }
+
+        .section__title {
+            font-family: var(--font-accent);
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section__description {
+            font-size: 20px;
+            color: var(--warm-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .services__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--pure-white);
+            border-radius: var(--border-radius-large);
+            padding: 48px 40px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s ease;
+            border: 2px solid rgba(184, 134, 11, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-premium);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-16px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card__icon {
+            width: 96px;
+            height: 96px;
+            background: var(--gradient-premium);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            font-size: 36px;
+            color: var(--pure-white);
+            box-shadow: var(--shadow-copper);
+        }
+
+        .service-card__title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+            font-family: var(--font-accent);
+        }
+
+        .service-card__description {
+            color: var(--warm-gray);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        /* Premium Fleet Section */
+        .fleet {
+            padding: var(--section-padding);
+            background: var(--pure-white);
+        }
+
+        .fleet__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 48px;
+        }
+
+        .fleet-card {
+            background: var(--pure-white);
+            border-radius: var(--border-radius-large);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s ease;
+            border: 2px solid rgba(184, 134, 11, 0.1);
+        }
+
+        .fleet-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .fleet-card__image {
+            height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fleet-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .fleet-card:hover .fleet-card__image img {
+            transform: scale(1.15);
+        }
+
+        .fleet-card__badge {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            background: var(--gradient-premium);
+            color: var(--pure-white);
+            padding: 10px 20px;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .fleet-card__content {
+            padding: 40px;
+        }
+
+        .fleet-card__title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+            font-family: var(--font-accent);
+        }
+
+        .fleet-card__features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .fleet-card__features li {
+            padding: 10px 0;
+            color: var(--warm-gray);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .fleet-card__features li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary-copper);
+            border-radius: 50%;
+        }
+
+        /* Features Section */
+        .features {
+            padding: var(--section-padding);
+            background: var(--gradient-dark);
+            color: var(--pure-white);
+        }
+
+        .features .section__title {
+            color: var(--pure-white);
+        }
+
+        .features__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--border-radius-large);
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .feature-card__icon {
+            width: 88px;
+            height: 88px;
+            background: var(--gradient-premium);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            font-size: 32px;
+            color: var(--pure-white);
+            box-shadow: var(--shadow-copper);
+        }
+
+        .feature-card__title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--pure-white);
+            font-family: var(--font-accent);
+        }
+
+        .feature-card__description {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: var(--section-padding);
+            background: var(--light-gray);
+        }
+
+        .testimonials__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--pure-white);
+            border-radius: var(--border-radius-large);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s ease;
+            border-top: 6px solid var(--primary-copper);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .testimonial-card__rating {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-card__rating i {
+            color: var(--accent-gold);
+            font-size: 16px;
+        }
+
+        .testimonial-card__content {
+            font-style: italic;
+            color: var(--warm-gray);
+            line-height: 1.8;
+            margin-bottom: 28px;
+            font-size: 16px;
+        }
+
+        .testimonial-card__author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .testimonial-card__avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-premium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .testimonial-card__info h4 {
+            color: var(--charcoal);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+
+        .testimonial-card__info p {
+            color: var(--warm-gray);
+            font-size: 14px;
+        }
+
+        /* Premium Showcase Section with CORRECT Fortuner Image */
+        .fleet-showcase {
+            padding: 100px 0;
+            background: var(--charcoal);
+            color: var(--pure-white);
+        }
+
+        .fleet-showcase__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .showcase-image {
+            position: relative;
+            border-radius: var(--border-radius-large);
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .showcase-image:hover img {
+            transform: scale(1.08);
+        }
+
+        .showcase-badge {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            background: var(--gradient-premium);
+            color: var(--pure-white);
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .showcase-info h3 {
+            font-family: var(--font-accent);
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--pure-white);
+        }
+
+        .showcase-info p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 32px;
+        }
+
+        .showcase-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .showcase-features li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .showcase-features li::before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--section-padding);
+            background: var(--charcoal);
+            color: var(--pure-white);
+        }
+
+        .contact .section__title {
+            color: var(--pure-white);
+        }
+
+        .contact__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 40px;
+            border-radius: var(--border-radius-large);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .contact-card__icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-premium);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 28px;
+            color: var(--pure-white);
+            box-shadow: var(--shadow-copper);
+        }
+
+        .contact-card__title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--pure-white);
+            font-family: var(--font-accent);
+        }
+
+        .contact-card__info {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .contact-card__info a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            font-weight: 600;
+        }
+
+        .contact-card__info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--luxury-black);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 48px 0;
+            border-top: 2px solid rgba(184, 134, 11, 0.3);
+        }
+
+        .footer__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer__brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer__logo {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-premium);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .footer__copyright {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .footer__links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer__links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer__links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Enhanced Booking Modal */
+        .modal{
+            position:fixed;inset:0;
+            display:flex;align-items:center;justify-content:center;
+            width:100%;height:100%;
+            background:rgba(0,0,0,.85);backdrop-filter:blur(15px);
+            opacity:0;visibility:hidden;transition:.4s ease;
+            z-index:9999;
+        }
+        .modal.show{opacity:1;visibility:visible}
+
+        .modal__content{
+            background:#fff;
+            width:92%;max-width:680px;max-height:90vh;
+            border-radius:24px;padding:0 38px 40px;
+            overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.25);
+            transform:translateY(40px) scale(.94);transition:.4s ease;
+        }
+        .modal.show .modal__content{transform:translateY(0) scale(1)}
+
+        .modal__header{padding:36px 0 18px;text-align:center;position:relative}
+        .modal__title{font:800 34px var(--font-accent);margin:0;color:#1A1A1A}
+        .modal__subtitle{color:#555;font-size:17px;margin-top:6px}
+        .modal__close{
+            position:absolute;top:20px;right:28px;font-size:26px;
+            width:46px;height:46px;border-radius:50%;
+            display:flex;align-items:center;justify-content:center;
+            border:none;background:transparent;color:#777;cursor:pointer;transition:.25s;
+        }
+        .modal__close:hover{color:#B8860B;background:rgba(184,134,11,.12)}
+
+        /* progress bar */
+        .progress-bar{height:6px;background:#eee;border-radius:3px;overflow:hidden;margin-bottom:32px}
+        .progress-bar__fill{height:100%;width:25%;background:linear-gradient(90deg,#B8860B,#FFD700);transition:.3s}
+
+        /* step wrapper */
+        .form-step{display:none;animation:fadeIn .4s ease}
+        .form-step.active{display:block}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+        .step-title{font:700 18px var(--font-primary);margin:2px 0 22px;color:#1A1A1A}
+
+        /* groups */
+        .form-group{margin-bottom:24px}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+
+        /* inputs */
+        label{display:block;font:600 14px var(--font-primary);margin-bottom:8px;color:#333}
+
+        .form-control{
+            width:100%;padding:15px 16px;border:2px solid #e3e3e3;border-radius:14px;
+            font-size:15px;font-family:inherit;transition:.25s;background:#fff
+        }
+        .form-control:focus{
+            border-color:#B8860B;box-shadow:0 0 0 4px rgba(184,134,11,.15);outline:none
+        }
+
+        /* multiselect note */
+        .small{font-size:12px;color:#777;margin-top:4px}
+
+        /* dots (optional if keeping) */
+        .step-indicator{display:flex;justify-content:center;gap:14px;margin:36px 0}
+        .step-dot{
+            width:14px;height:14px;border-radius:50%;background:#e3e3e3;transition:.3s;position:relative
+        }
+        .step-dot.active{background:#B8860B;transform:scale(1.15)}
+        .step-dot.completed{background:#B8860B}
+        .step-dot.completed::after{
+            content:'✓';position:absolute;inset:0;font-size:10px;font-weight:700;
+            color:#fff;display:flex;align-items:center;justify-content:center
+        }
+
+        /* buttons */
+        .btn{border:none;padding:13px 28px;border-radius:26px;font:600 14px var(--font-primary);cursor:pointer;transition:.25s}
+        .btn--primary{background:linear-gradient(135deg,#B8860B,#FFD700);color:#fff}
+        .btn--secondary{background:#f1f1f1;color:#333}
+        .btn--primary:hover{box-shadow:0 6px 20px rgba(184,134,11,.4);transform:translateY(-2px)}
+        .btn--secondary:hover{background:#e5e5e5}
+
+        /* form action bar */
+        .form-actions{
+            display:flex;gap:18px;justify-content:space-between;align-items:center;
+            margin-top:32px;padding-top:28px;border-top:2px solid #e8e8e8
+        }
+
+        /* modern scrollbar inside modal */
+        .modal__content::-webkit-scrollbar{width:6px}
+        .modal__content::-webkit-scrollbar-thumb{background:#B8860B;border-radius:3px}
+
+        /* responsive */
+        @media(max-width:600px){
+            .modal__content{padding:0 24px 32px}
+            .form-row{grid-template-columns:1fr}
+        }
+
+
+
+
+
+
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        .modal__header {
+            padding: 40px 40px 0;
+            text-align: center;
+            position: relative;
+        }
+
+
+
+        .modal__close:hover {
+            color: var(--primary-copper);
+            background: rgba(184, 134, 11, 0.1);
+        }
+
+        .modal__title {
+            font-family: var(--font-accent);
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 16px;
+        }
+
+        .booking-form {
+            padding: 0 40px 40px;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 18px;
+            border: 3px solid #E8E8E8;
+            border-radius: 16px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: var(--font-primary);
+            background: var(--pure-white);
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-copper);
+            box-shadow: 0 0 0 6px rgba(184, 134, 11, 0.1);
+            background: #FFFEF8;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 2px solid #E8E8E8;
+        }
+
+        /* Responsive Design with FIXED alignment */
+        @media (max-width: 1024px) {
+            .nav__brand {
+                gap: 16px;
+            }
+
+            .brand-info h1 {
+                font-size: 28px;
+            }
+
+            .brand-info .tagline {
+                font-size: 12px;
+            }
+
+            .nav__list {
+                gap: 32px;
+                margin-right: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav {
+                padding: 16px 20px;
+            }
+
+            .nav__brand {
+                gap: 12px;
+            }
+
+            .brand-info h1 {
+                font-size: 24px;
+            }
+
+            .brand-info .tagline {
+                font-size: 11px;
+            }
+
+            .nav__menu {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(30px);
+                transition: left 0.4s ease;
+                flex-direction: column;
+                justify-content: start;
+                padding: 48px 0;
+            }
+
+            .nav__menu.active {
+                left: 0;
+            }
+
+            .nav__list {
+                flex-direction: column;
+                gap: 32px;
+                text-align: center;
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .nav__actions {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav__toggle {
+                display: flex;
+            }
+
+            .hero__content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                text-align: center;
+            }
+
+            .hero__title {
+                font-size: 56px;
+            }
+
+            .hero__stats {
+                justify-content: center;
+                gap: 40px;
+            }
+
+            .section__title {
+                font-size: 42px;
+            }
+
+            .services__grid,
+            .fleet__grid,
+            .features__grid,
+            .testimonials__grid,
+            .contact__grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .fleet-showcase__content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer__content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .footer__links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 4px solid rgba(255, 255, 255, .3);
+            border-radius: 50%;
+            border-top-color: var(--pure-white);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Enhanced Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            animation: slideLeft 1s ease forwards;
+        }
+
+        @keyframes slideLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(60px);
+            animation: slideRight 1s ease forwards;
+        }
+
+        @keyframes slideRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with FIXED alignment -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <div class="logo">
+                    <!-- Your Actual Logo SVG -->
+                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#B8860B;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#CD7F32;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Main geometric flower/star pattern -->
+                        <g fill="url(#logoGradient)" stroke="none">
+                            <!-- Outer petals/loops -->
+                            <path d="M200,50 Q300,100 350,200 Q300,300 200,350 Q100,300 50,200 Q100,100 200,50 Z" opacity="0.8"/>
+
+                            <!-- Rotated version -->
+                            <g transform="rotate(45 200 200)">
+                                <path d="M200,70 Q280,120 330,200 Q280,280 200,330 Q120,280 70,200 Q120,120 200,70 Z" opacity="0.9"/>
+                            </g>
+
+                            <!-- Inner connecting elements -->
+                            <g transform="rotate(22.5 200 200)">
+                                <path d="M200,90 Q260,140 310,200 Q260,260 200,310 Q140,260 90,200 Q140,140 200,90 Z" opacity="0.7"/>
+                            </g>
+
+                            <!-- Central hub -->
+                            <circle cx="200" cy="200" r="25" fill="url(#logoGradient)" opacity="1"/>
+
+                            <!-- Additional geometric elements -->
+                            <g transform="rotate(90 200 200)">
+                                <ellipse cx="200" cy="120" rx="15" ry="40" fill="url(#logoGradient)" opacity="0.6"/>
+                                <ellipse cx="200" cy="280" rx="15" ry="40" fill="url(#logoGradient)" opacity="0.6"/>
+                            </g>
+
+                            <g transform="rotate(0 200 200)">
+                                <ellipse cx="120" cy="200" rx="40" ry="15" fill="url(#logoGradient)" opacity="0.6"/>
+                                <ellipse cx="280" cy="200" rx="40" ry="15" fill="url(#logoGradient)" opacity="0.6"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="brand-info">
+                    <h1>CorpCruise</h1>
+                    <div class="tagline">Cruise in Signature Style</div>
+                </div>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link">Home</a></li>
+                    <li><a href="#services" class="nav__link">Services</a></li>
+                    <li><a href="#fleet" class="nav__link">Fleet</a></li>
+                    <li><a href="#testimonials" class="nav__link">Reviews</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+
+                <div class="nav__actions">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        Verified & Secured
+                    </div>
+                    <button class="btn btn--primary" onclick="openBookingModal()">
+                        <i class="fas fa-calendar-check"></i>
+                        Book Ride
+                    </button>
+                </div>
+            </div>
+
+            <button class="nav__toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Premium BMW -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__text">
+                    <div class="hero__label fade-in">
+                        <i class="fas fa-medal"></i>
+                        Since 2018 • Ex-Defense Founded
+                    </div>
+                    <h1 class="hero__title slide-left">
+                        Premium <span class="highlight">Corporate</span><br>
+                        Mobility Solutions
+                    </h1>
+                    <p class="hero__description fade-in">
+                        Experience unmatched luxury and reliability with our premium fleet, 
+                        professional chauffeurs, and cutting-edge technology across India's major cities.
+                    </p>
+
+                    <div class="hero__actions fade-in">
+                        <button class="btn btn--primary" onclick="openBookingModal()">
+                            <i class="fas fa-car"></i>
+                            Book Your Ride
+                        </button>
+                        <a href="#fleet" class="btn btn--secondary">
+                            <i class="fas fa-eye"></i>
+                            Explore Fleet
+                        </a>
+                    </div>
+
+                    <div class="hero__stats slide-left">
+                        <div class="stat">
+                            <div class="stat__number">1500+</div>
+                            <div class="stat__label">Happy Clients</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">25+</div>
+                            <div class="stat__label">Cities Covered</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">24/7</div>
+                            <div class="stat__label">Available</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero__visual slide-right">
+                    <div class="hero__car-display">
+                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="BMW 5 Series Luxury Sedan" class="hero__car-image">
+                        <div class="hero__car-overlay">
+                            <div class="hero__car-name">BMW 5 Series Executive</div>
+                            <div class="hero__car-type">Premium Sedan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__label fade-in">Our Premium Services</div>
+                <h2 class="section__title fade-in">Complete Mobility Solutions</h2>
+                <p class="section__description fade-in">
+                    From executive airport transfers to large-scale corporate events, we deliver 
+                    tailored transportation experiences that exceed expectations.
+                </p>
+            </div>
+
+            <div class="services__grid">
+                <div class="service-card fade-in">
+                    <div class="service-card__icon">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h3 class="service-card__title">Airport Transfer</h3>
+                    <p class="service-card__description">
+                        Punctual luxury airport services with flight tracking, meet & greet, 
+                        and seamless luggage handling for executives.
+                    </p>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">
+                        Book Transfer
+                    </button>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-card__icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-card__title">Corporate Transportation</h3>
+                    <p class="service-card__description">
+                        Professional executive transport for meetings, conferences, and business 
+                        events with dedicated account management.
+                    </p>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">
+                        Book Corporate
+                    </button>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-card__icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="service-card__title">Event Services</h3>
+                    <p class="service-card__description">
+                        Luxury group transportation for weddings, galas, and corporate events 
+                        with customizable packages and premium amenities.
+                    </p>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">
+                        Book Event
+                    </button>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-card__icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3 class="service-card__title">Intercity Travel</h3>
+                    <p class="service-card__description">
+                        Comfortable long-distance luxury travel with experienced chauffeurs 
+                        and vehicles equipped for extended journeys.
+                    </p>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">
+                        Book Intercity
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Fleet Section with CORRECTED Images -->
+    <section class="fleet" id="fleet">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__label fade-in">Our Luxury Fleet</div>
+                <h2 class="section__title fade-in">Choose Your Perfect Ride</h2>
+                <p class="section__description fade-in">
+                    Our meticulously maintained fleet features the finest vehicles equipped with 
+                    premium amenities to ensure unparalleled comfort and style.
+                </p>
+            </div>
+
+            <div class="fleet__grid">
+                <div class="fleet-card fade-in">
+                    <div class="fleet-card__image">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/2022-mercedes-benz-s500-4matic-123-1642184026.jpg?crop=0.458xw:0.387xh;0.316xw,0.418xh&resize=700:*" alt="BMW 5 Series Executive Sedan">
+                        <div class="fleet-card__badge">Executive Sedans</div>
+                    </div>
+                    <div class="fleet-card__content">
+                        <h3 class="fleet-card__title">BMW 5 Series, Mercedes E-Class</h3>
+                        <ul class="fleet-card__features">
+                            <li>Premium leather interior</li>
+                            <li>Advanced climate control</li>
+                            <li>High-speed Wi-Fi</li>
+                            <li>Professional chauffeur</li>
+                            <li>Complimentary refreshments</li>
+                            <li>Privacy partition available</li>
+                        </ul>
+                        <button class="btn btn--primary" onclick="openBookingModal()">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Sedan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="fleet-card fade-in">
+                    <div class="fleet-card__image">
+                        <img src="https://imgd.aeplcdn.com/1920x1080/n/cw/ec/44709/fortuner-facelift-exterior-rear-view.jpeg?q=80&q=80">
+                        <div class="fleet-card__badge">Luxury SUVs</div>
+                    </div>
+                    <div class="fleet-card__content">
+                        <h3 class="fleet-card__title">Mercedes GLE, BMW X5, Fortuner</h3>
+                        <ul class="fleet-card__features">
+                            <li>Spacious luxury cabin</li>
+                            <li>Premium sound system</li>
+                            <li>Panoramic sunroof</li>
+                            <li>All-terrain capability</li>
+                            <li>Entertainment screens</li>
+                            <li>Ambient lighting</li>
+                        </ul>
+                        <button class="btn btn--primary" onclick="openBookingModal()">
+                            <i class="fas fa-calendar-check"></i>
+                            Book SUV
+                        </button>
+                    </div>
+                </div>
+
+                <div class="fleet-card fade-in">
+                    <div class="fleet-card__image">
+                        <img src="https://files.toyota.com.bh/s3fs-public/2019-10/g_h_5_3.jpg?utm_source=Website&utm_medium=Website&utm_campaign=Website">
+                        <div class="fleet-card__badge">Premium Vans</div>
+                    </div>
+                    <div class="fleet-card__content">
+                        <h3 class="fleet-card__title">Toyota Hycross, Mercedes Sprinter</h3>
+                        <ul class="fleet-card__features">
+                            <li>8-12 passenger capacity</li>
+                            <li>Conference seating layout</li>
+                            <li>Mini bar & refreshments</li>
+                            <li>Extra luggage space</li>
+                            <li>Corporate branding options</li>
+                            <li>Power outlets & USB charging</li>
+                        </ul>
+                        <button class="btn btn--primary" onclick="openBookingModal()">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Van
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Fortuner Showcase with CORRECT Image -->
+    <section class="fleet-showcase">
+        <div class="container">
+            <div class="fleet-showcase__content">
+                <div class="showcase-image fade-in">
+                    <img src="https://www.carmag.co.za/wp-content/uploads/2023/03/TF-4-1024x614.webp" alt="Toyota Fortuner Premium SUV">
+                    <div class="showcase-badge">Premium SUV</div>
+                </div>
+
+                <div class="showcase-info fade-in">
+                    <h3>Toyota Fortuner Premium</h3>
+                    <p>
+                        Experience the perfect blend of luxury and capability with our Toyota Fortuner fleet. 
+                        Designed for executives who demand both comfort and performance, these vehicles offer 
+                        premium interiors, advanced safety features, and commanding road presence.
+                    </p>
+
+                    <ul class="showcase-features">
+                        <li>7-seater luxury configuration</li>
+                        <li>Advanced safety systems</li>
+                        <li>Premium leather upholstery</li>
+                        <li>Powerful diesel engine</li>
+                        <li>All-wheel drive capability</li>
+                        <li>Corporate executive comfort</li>
+                    </ul>
+
+                    <button class="btn btn--primary" onclick="openBookingModal()">
+                        <i class="fas fa-star"></i>
+                        Book Fortuner
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__label fade-in">Why Choose CorpCruise</div>
+                <h2 class="section__title fade-in">Excellence in Every Detail</h2>
+                <p class="section__description fade-in">
+                    Our unwavering commitment to safety, luxury, and professionalism sets us 
+                    apart as the premier choice for corporate transportation.
+                </p>
+            </div>
+
+            <div class="features__grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="feature-card__title">Professional Chauffeurs</h3>
+                    <p class="feature-card__description">
+                        Rigorously trained, background-verified, and uniformed professionals with 
+                        exceptional driving skills and customer service excellence.
+                    </p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+                    <h3 class="feature-card__title">Safety First</h3>
+                    <p class="feature-card__description">
+                        Advanced safety protocols, regular vehicle maintenance, GPS tracking, 
+                        and 24/7 monitoring ensure your complete peace of mind.
+                    </p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-card__title">Smart Technology</h3>
+                    <p class="feature-card__description">
+                        Real-time booking, live tracking, automated notifications, and digital 
+                        receipts for a seamless, tech-enabled experience.
+                    </p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="feature-card__title">Transparent Billing</h3>
+                    <p class="feature-card__description">
+                        Clear pricing structure, detailed invoices, corporate billing options, 
+                        and our no-hidden-charges guarantee.
+                    </p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="feature-card__title">ISO Certified</h3>
+                    <p class="feature-card__description">
+                        Certified for quality management and security standards ensuring 
+                        consistent service excellence and data protection.
+                    </p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-card__title">24/7 Support</h3>
+                    <p class="feature-card__description">
+                        Round-the-clock customer support, emergency assistance, and dedicated 
+                        account managers for all corporate clients.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__label fade-in">Client Testimonials</div>
+                <h2 class="section__title fade-in">Trusted by Industry Leaders</h2>
+                <p class="section__description fade-in">
+                    Discover why leading corporations and executives choose CorpCruise for their 
+                    luxury transportation needs across India.
+                </p>
+            </div>
+
+            <div class="testimonials__grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-card__rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-card__content">
+                        "CorpCruise has transformed our corporate transportation experience. Their attention 
+                        to detail, punctuality, and luxury service makes every journey exceptional. The 
+                        professional chauffeurs and premium fleet truly set them apart."
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">MS</div>
+                        <div class="testimonial-card__info">
+                            <h4>Mahipal Singh Rawat</h4>
+                            <p>Business Head, JetMobility Pvt. Ltd.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-card__rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-card__content">
+                        "Outstanding service with impeccable timing. The booking process is seamless, 
+                        and the vehicles are always pristine. CorpCruise has become our go-to choice 
+                        for all executive transportation needs."
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">RK</div>
+                        <div class="testimonial-card__info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>CEO, TechCorp Solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-card__rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-card__content">
+                        "The luxury and professionalism of CorpCruise is unmatched. From the moment 
+                        you book until you reach your destination, every aspect is handled with 
+                        precision and care. Truly a premium experience."
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">PS</div>
+                        <div class="testimonial-card__info">
+                            <h4>Priya Sharma</h4>
+                            <p>HR Director, Global Industries</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__label fade-in">Get In Touch</div>
+                <h2 class="section__title fade-in">Contact Our Expert Team</h2>
+                <p class="section__description fade-in">
+                    Ready to experience luxury transportation? Contact us for bookings, 
+                    corporate packages, or any inquiries. We're here to serve you 24/7.
+                </p>
+            </div>
+
+            <div class="contact__grid">
+                <div class="contact-card fade-in">
+                    <div class="contact-card__icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="contact-card__title">Call Us</h3>
+                    <div class="contact-card__info">
+                        <p><a href="tel:+919136033136">+91-9136033136</a></p>
+                        <p><a href="tel:+919920592531">+91-9920592531</a></p>
+                        <p>Available 24/7 for bookings</p>
+                    </div>
+                </div>
+
+                <div class="contact-card fade-in">
+                    <div class="contact-card__icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="contact-card__title">Email Us</h3>
+                    <div class="contact-card__info">
+                        <p><a href="mailto:info@corpcruise.com">info@corpcruise.com</a></p>
+                        <p><a href="mailto:sales@corpcruise.com">sales@corpcruise.com</a></p>
+                        <p>Response within 2 hours</p>
+                    </div>
+                </div>
+
+                <div class="contact-card fade-in">
+                    <div class="contact-card__icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="contact-card__title">Visit Us</h3>
+                    <div class="contact-card__info">
+                        <p>Indo Saigon Non Residential Premises</p>
+                        <p>A K Road, Marol Naka, Andheri East</p>
+                        <p>Mumbai, Maharashtra 400059</p>
+                    </div>
+                </div>
+
+                <div class="contact-card fade-in">
+                    <div class="contact-card__icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="contact-card__title">Service Coverage</h3>
+                    <div class="contact-card__info">
+                        <p>Mumbai, Delhi, Bangalore, Chennai</p>
+                        <p>Pune, Kolkata, Hyderabad, Ahmedabad</p>
+                        <p>Plus 20+ other major cities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                            <defs>
+                                <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#B8860B;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M16,4 Q24,8 28,16 Q24,24 16,28 Q8,24 4,16 Q8,8 16,4 Z" fill="url(#footerGradient)" opacity="0.8"/>
+                            <circle cx="16" cy="16" r="3" fill="url(#footerGradient)"/>
+                        </svg>
+                    </div>
+                    <div class="footer__copyright">
+                        © 2025 CorpCruise.com - All rights reserved | Founded by Ex-Defense Personnel
+                    </div>
+                </div>
+                <ul class="footer__links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Corporate</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Modern Booking Modal -->
+    <div class="modal" id="booking-modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <button class="modal__close" onclick="closeBookingModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h2 class="modal__title">Book Your Luxury Ride</h2>
+                <p class="modal__subtitle">Experience premium corporate transportation with CorpCruise</p>
+            </div>
+
+            <!-- Modern Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-bar__fill" style="width: 25%;"></div>
+            </div>
+
+            <form class="booking-form" id="booking-form">
+                <!-- Step 1: Company & Service Details -->
+                <div class="form-step active" id="step-1">
+                    <h3 class="step-title">Company & Service Details</h3>
+
+                    <div class="form-group">
+                        <label for="company-name">Company Name</label>
+                        <input type="text" class="form-control" id="company-name" name="company_name"
+                               placeholder="Enter company name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">Select City</label>
+                            <select class="form-control" id="city" name="city" required>
+                                <option value="">Choose your city</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="delhi">Delhi</option>
+                                <option value="bengaluru">Bengaluru</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="kolkata">Kolkata</option>
+                                <option value="pune">Pune</option>
+                                <option value="hyderabad">Hyderabad</option>
+                                <option value="ahmedabad">Ahmedabad</option>
+                                <option value="jaipur">Jaipur</option>
+                                <option value="lucknow">Lucknow</option>
+                                <option value="kanpur">Kanpur</option>
+                                <option value="nagpur">Nagpur</option>
+                                <option value="indore">Indore</option>
+                                <option value="thane">Thane</option>
+                                <option value="bhopal">Bhopal</option>
+                                <option value="visakhapatnam">Visakhapatnam</option>
+                                <option value="pimpri-chinchwad">Pimpri-Chinchwad</option>
+                                <option value="patna">Patna</option>
+                                <option value="vadodara">Vadodara</option>
+                                <option value="ghaziabad">Ghaziabad</option>
+                                <option value="ludhiana">Ludhiana</option>
+                                <option value="agra">Agra</option>
+                                <option value="nashik">Nashik</option>
+                                <option value="faridabad">Faridabad</option>
+                                <option value="meerut">Meerut</option>
+                                <option value="rajkot">Rajkot</option>
+                                <option value="kalyan-dombivali">Kalyan-Dombivali</option>
+                                <option value="vasai-virar">Vasai-Virar</option>
+                                <option value="varanasi">Varanasi</option>
+                                <option value="srinagar">Srinagar</option>
+                                <option value="aurangabad">Aurangabad</option>
+                                <option value="dhanbad">Dhanbad</option>
+                                <option value="amritsar">Amritsar</option>
+                                <option value="navi-mumbai">Navi Mumbai</option>
+                                <option value="allahabad">Allahabad</option>
+                                <option value="ranchi">Ranchi</option>
+                                <option value="howrah">Howrah</option>
+                                <option value="coimbatore">Coimbatore</option>
+                                <option value="jabalpur">Jabalpur</option>
+                                <option value="gwalior">Gwalior</option>
+                                <option value="vijayawada">Vijayawada</option>
+                                <option value="jodhpur">Jodhpur</option>
+                                <option value="madurai">Madurai</option>
+                                <option value="raipur">Raipur</option>
+                                <option value="kota">Kota</option>
+                                <option value="guwahati">Guwahati</option>
+                                <option value="chandigarh">Chandigarh</option>
+                                <option value="solapur">Solapur</option>
+                                <option value="hubballi-dharwad">Hubballi-Dharwad</option>
+                                <option value="tiruchirappalli">Tiruchirappalli</option>
+                                <option value="bareilly">Bareilly</option>
+                                <option value="mysore">Mysore</option>
+                                <option value="tiruppur">Tiruppur</option>
+                                <option value="gurgaon">Gurgaon</option>
+                                <option value="aligarh">Aligarh</option>
+                                <option value="jalandhar">Jalandhar</option>
+                                <option value="bhubaneswar">Bhubaneswar</option>
+                                <option value="salem">Salem</option>
+                                <option value="warangal">Warangal</option>
+                                <option value="guntur">Guntur</option>
+                                <option value="bhiwandi">Bhiwandi</option>
+                                <option value="saharanpur">Saharanpur</option>
+                                <option value="gorakhpur">Gorakhpur</option>
+                                <option value="bikaner">Bikaner</option>
+                                <option value="amravati">Amravati</option>
+                                <option value="noida">Noida</option>
+                                <option value="jamshedpur">Jamshedpur</option>
+                                <option value="bhilai-nagar">Bhilai Nagar</option>
+                                <option value="cuttack">Cuttack</option>
+                                <option value="firozabad">Firozabad</option>
+                                <option value="kochi">Kochi</option>
+                                <option value="nellore">Nellore</option>
+                                <option value="bhavnagar">Bhavnagar</option>
+                                <option value="dehradun">Dehradun</option>
+                                <option value="durgapur">Durgapur</option>
+                                <option value="asansol">Asansol</option>
+                                <option value="rourkela">Rourkela</option>
+                                <option value="nanded">Nanded</option>
+                                <option value="kolhapur">Kolhapur</option>
+                                <option value="ajmer">Ajmer</option>
+                                <option value="akola">Akola</option>
+                                <option value="gulbarga">Gulbarga</option>
+                                <option value="jamnagar">Jamnagar</option>
+                                <option value="ujjain">Ujjain</option>
+                                <option value="loni">Loni</option>
+                                <option value="siliguri">Siliguri</option>
+                                <option value="jhansi">Jhansi</option>
+                                <option value="ulhasnagar">Ulhasnagar</option>
+                                <option value="nellore">Nellore</option>
+                                <option value="jammu">Jammu</option>
+                                <option value="sangli-miraj-kupwad">Sangli-Miraj-Kupwad</option>
+                                <option value="mangalore">Mangalore</option>
+                                <option value="erode">Erode</option>
+                                <option value="belgaum">Belgaum</option>
+                                <option value="ambattur">Ambattur</option>
+                                <option value="tirunelveli">Tirunelveli</option>
+                                <option value="malegaon">Malegaon</option>
+                                <option value="gaya">Gaya</option>
+                                <option value="jalgaon">Jalgaon</option>
+                                <option value="udaipur">Udaipur</option>
+                                <option value="maheshtala">Maheshtala</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicle-type">Vehicle Type</label>
+                            <select class="form-control" id="vehicle-type" name="vehicle_type" required>
+                                <option value="">Choose vehicle type</option>
+                                <option value="sedan">Executive Sedan (BMW 5 Series, Mercedes E-Class)</option>
+                                <option value="suv">Luxury SUV (Mercedes GLE, BMW X5, Fortuner)</option>
+                                <option value="van">Premium Van (Toyota Hycross, Mercedes Sprinter)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duty-type">Duty Type</label>
+                        <select class="form-control" id="duty-type" name="duty_type" required>
+                            <option value="">Select duty type</option>
+                            <option value="local">Local</option>
+                            <option value="outstation">Outstation</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 2: Booker Details -->
+                <div class="form-step" id="step-2">
+                    <h3 class="step-title">Booker Information</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booker-name">Booker Name</label>
+                            <input type="text" class="form-control" id="booker-name" name="booker_name"
+                                   placeholder="Person making the booking" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="booker-phone">Contact Number</label>
+                            <input type="tel" class="form-control" id="booker-phone" name="booker_phone"
+                                   placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="booker-email">Email ID</label>
+                        <input type="email" class="form-control" id="booker-email" name="booker_email"
+                               placeholder="booker@company.com" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guest-name">Guest Name</label>
+                            <input type="text" class="form-control" id="guest-name" name="guest_name"
+                                   placeholder="Passenger name (if different)">
+                        </div>
+                        <div class="form-group">
+                            <label for="guest-phone">Guest Contact</label>
+                            <input type="tel" class="form-control" id="guest-phone" name="guest_phone"
+                                   placeholder="+91 XXXXX XXXXX">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Journey Details -->
+                <div class="form-step" id="step-3">
+                    <h3 class="step-title">Journey Details</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pickup-date">Date</label>
+                            <input type="date" class="form-control" id="pickup-date" name="pickup_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pickup-time">Required Time</label>
+                            <input type="time" class="form-control" id="pickup-time" name="pickup_time" required>
+                        </div>
+                    </div>
+
+                    <!-- Local Trip Fields -->
+                    <div class="local-group" style="display: none;">
+                        <div class="form-group">
+                            <label for="pickup-address">Pickup Address</label>
+                            <textarea class="form-control" id="pickup-address" name="pickup_address" rows="3"
+                                      placeholder="Complete pickup address with landmark"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="drop-address">Drop Address</label>
+                            <textarea class="form-control" id="drop-address" name="drop_address" rows="3"
+                                      placeholder="Complete drop address with landmark"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Outstation Trip Fields -->
+                    <div class="outstation-group" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pickup-city">Pickup City</label>
+                                <input type="text" class="form-control" id="pickup-city" name="pickup_city"
+                                       placeholder="Starting city">
+                            </div>
+                            <div class="form-group">
+                                <label for="drop-city">Destination City</label>
+                                <input type="text" class="form-control" id="drop-city" name="drop_city"
+                                       placeholder="Destination city">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="outstation-pickup">Pickup Address</label>
+                            <textarea class="form-control" id="outstation-pickup" name="outstation_pickup" rows="2"
+                                      placeholder="Exact pickup location in the city"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="outstation-drop">Drop Address</label>
+                            <textarea class="form-control" id="outstation-drop" name="outstation_drop" rows="2"
+                                      placeholder="Exact drop location in destination city"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Additional Details -->
+                <div class="form-step" id="step-4">
+                    <h3 class="step-title">Additional Details</h3>
+
+                    <div class="form-group">
+                        <label for="flight-details">Flight Details (Optional)</label>
+                        <input type="text" class="form-control" id="flight-details" name="flight_details"
+                               placeholder="Flight number, arrival/departure time">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amenities">Additional Amenities</label>
+                        <select class="form-control" id="amenities" name="amenities" multiple>
+                            <option value="water">Premium Water</option>
+                            <option value="newspaper">Newspaper</option>
+                            <option value="refreshments">Refreshments</option>
+                            <option value="phone-charger">Phone Charger</option>
+                            <option value="umbrella">Umbrella</option>
+                            <option value="tissues">Tissues</option>
+                            <option value="sanitizer">Hand Sanitizer</option>
+                        </select>
+                        <small class="form-text">Hold Ctrl/Cmd to select multiple items</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="special-requests">Special Requests (Optional)</label>
+                        <textarea class="form-control" id="special-requests" name="special_requests" rows="3"
+                                  placeholder="Any special requirements, preferences, or instructions"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn--secondary" id="prev-btn"
+                            onclick="previousStep()" style="display: none;">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <div></div>
+                    <button type="button" class="btn btn--primary" id="next-btn"
+                            onclick="nextStep()">
+                        Next Step <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button type="submit" class="btn btn--primary" id="submit-btn"
+                            style="display: none;">
+                        <i class="fas fa-check-circle"></i> Confirm Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Add Supabase JavaScript SDK -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+
+    <script>
+
+        // Initialize Supabase
+        const supabaseUrl = 'https://tkxbqmhklbkngjcaitic.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRreGJxbWhrbGJrbmdqY2FpdGljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4MDg1MzMsImV4cCI6MjA3NDM4NDUzM30.wG-_2ZiWoOKTa_x4FMLLH5oiJqRxF2YIfxdCFzO0yos'
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
+
+
+        // Global variables
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        // DOM elements
+        const header = document.getElementById('header');
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const bookingModal = document.getElementById('booking-modal');
+        const bookingForm = document.getElementById('booking-form');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const progressBar = document.querySelector('.progress-bar__fill');
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            setMinDate();
+            addScrollEffects();
+            addSmoothScrolling();
+            addFormValidation();
+            initializeAnimations();
+            initializeDutyTypeToggle();
+        });
+
+        // Set minimum date to today
+        function setMinDate() {
+            const today = new Date().toISOString().split('T')[0];
+            const pickupDate = document.getElementById('pickup-date');
+            if (pickupDate) {
+                pickupDate.min = today;
+            }
+        }
+
+        // Header scroll effects
+        function addScrollEffects() {
+            window.addEventListener('scroll', function() {
+                const scrolled = window.scrollY > 100;
+                header.classList.toggle('scrolled', scrolled);
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        function addSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        // Initialize animations
+        function initializeAnimations() {
+            const animationElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        entry.target.style.animationDelay = Math.random() * 0.4 + 's';
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -60px 0px'
+            });
+
+            animationElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize duty type toggle functionality
+        function initializeDutyTypeToggle() {
+            const dutyTypeSelect = document.getElementById('duty-type');
+            const localGroup = document.querySelector('.local-group');
+            const outstationGroup = document.querySelector('.outstation-group');
+
+            if (dutyTypeSelect && localGroup && outstationGroup) {
+                dutyTypeSelect.addEventListener('change', function() {
+                    if (this.value === 'local') {
+                        localGroup.style.display = 'block';
+                        outstationGroup.style.display = 'none';
+                    } else if (this.value === 'outstation') {
+                        localGroup.style.display = 'none';
+                        outstationGroup.style.display = 'block';
+                    } else {
+                        localGroup.style.display = 'none';
+                        outstationGroup.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Mobile navigation toggle
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav__link').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Modal functions
+        function openBookingModal() {
+            bookingModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.remove('active');
+            document.body.style.overflow = '';
+            resetForm();
+        }
+
+        // Close modal when clicking outside or pressing Escape
+        bookingModal.addEventListener('click', function(e) {
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && bookingModal.classList.contains('active')) {
+                closeBookingModal();
+            }
+        });
+
+        // Form step navigation
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateStepDisplay();
+                }
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepDisplay();
+            }
+        }
+
+        function updateStepDisplay() {
+            // Hide all steps
+            document.querySelectorAll('.form-step').forEach(step => {
+                step.classList.remove('active');
+            });
+
+            // Show current step
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+
+            // Update progress bar
+            if (progressBar) {
+                const progress = (currentStep / totalSteps) * 100;
+                progressBar.style.width = progress + '%';
+            }
+
+            // Update step indicators
+            document.querySelectorAll('.step-dot').forEach((dot, index) => {
+                dot.classList.remove('active', 'completed');
+                if (index < currentStep - 1) {
+                    dot.classList.add('completed');
+                } else if (index === currentStep - 1) {
+                    dot.classList.add('active');
+                }
+            });
+
+            // Update button visibility
+            prevBtn.style.display = currentStep > 1 ? 'flex' : 'none';
+
+            if (currentStep === totalSteps) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'flex';
+            } else {
+                nextBtn.style.display = 'flex';
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        // Form validation
+        function validateCurrentStep() {
+            const currentFormStep = document.getElementById(`step-${currentStep}`);
+            const requiredFields = currentFormStep.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                // Remove existing error states
+                field.style.borderColor = '';
+                const existingError = field.parentNode.querySelector('.error-message');
+                if (existingError) {
+                    existingError.remove();
+                }
+
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#ff5555';
+                    isValid = false;
+
+                    // Add error message
+                    const errorMsg = document.createElement('div');
+                    errorMsg.className = 'error-message';
+                    errorMsg.style.cssText = 'color: #ff5555; font-size: 14px; margin-top: 8px; font-weight: 600;';
+                    errorMsg.textContent = 'This field is required';
+                    field.parentNode.appendChild(errorMsg);
+                }
+            });
+
+            if (!isValid) {
+                // Scroll to first error
+                const firstError = currentFormStep.querySelector('[required][style*="rgb(255, 85, 85)"]');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+            }
+
+            return isValid;
+        }
+
+        // Add real-time validation
+        function addFormValidation() {
+            const formFields = document.querySelectorAll('.form-control');
+            formFields.forEach(field => {
+                field.addEventListener('blur', function() {
+                    if (this.hasAttribute('required') && !this.value.trim()) {
+                        this.style.borderColor = '#ff5555';
+                    } else {
+                        this.style.borderColor = '';
+                        const existingError = this.parentNode.querySelector('.error-message');
+                        if (existingError) {
+                            existingError.remove();
+                        }
+                    }
+                });
+
+                field.addEventListener('input', function() {
+                    if (this.style.borderColor === 'rgb(255, 85, 85)' && this.value.trim()) {
+                        this.style.borderColor = '';
+                        const existingError = this.parentNode.querySelector('.error-message');
+                        if (existingError) {
+                            existingError.remove();
+                        }
+                    }
+                });
+            });
+        }
+
+        // Updated form submission with Supabase
+        bookingForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (validateCurrentStep()) {
+                submitBtn.innerHTML = '<div class="loading"></div> Processing...';
+                submitBtn.disabled = true;
+
+                try {
+                    // Collect form data
+                    const formData = new FormData(this);
+                    const bookingData = {};
+                    for (let [key, value] of formData.entries()) {
+                        bookingData[key] = value;
+                    }
+
+                    // Handle amenities array
+                    const amenitiesSelect = document.getElementById('amenities');
+                    const selectedAmenities = Array.from(amenitiesSelect.selectedOptions).map(option => option.value);
+                    bookingData.amenities = selectedAmenities;
+
+                    // Generate booking reference
+                    const bookingRef = 'CC-' + Date.now() + '-' + Math.random().toString(36).substr(2, 5).toUpperCase();
+                    bookingData.booking_reference = bookingRef;
+
+                    // Insert into Supabase
+                    const { data, error } = await supabase
+                        .from('bookings')
+                        .insert([bookingData])
+                        .select();
+
+                    if (error) {
+                        throw error;
+                    }
+
+                    console.log('Booking saved:', data);
+                    alert(`✅ Booking confirmed! Your reference: ${bookingRef}\n\nWe will contact you within 15 minutes.`);
+                    closeBookingModal();
+
+                } catch (error) {
+                    console.error('Error saving booking:', error);
+                    alert('❌ Sorry, there was an error. Please try again or call us directly.');
+                } finally {
+                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm Booking';
+                    submitBtn.disabled = false;
+                }
+            }
+        });
+
+
+        // Reset form
+        function resetForm() {
+            currentStep = 1;
+            bookingForm.reset();
+            updateStepDisplay();
+
+            // Reset button states
+            submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm Booking';
+            submitBtn.disabled = false;
+
+            // Clear error states
+            document.querySelectorAll('.error-message').forEach(msg => msg.remove());
+            document.querySelectorAll('.form-control').forEach(field => {
+                field.style.borderColor = '';
+            });
+
+            // Reset visibility states
+            const localGroup = document.querySelector('.local-group');
+            const outstationGroup = document.querySelector('.outstation-group');
+            if (localGroup) localGroup.style.display = 'none';
+            if (outstationGroup) outstationGroup.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
