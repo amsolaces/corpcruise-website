@@ -1229,6 +1229,55 @@
             margin-top: 4px;
         }
 
+        /* Vehicle Category Buttons */
+        .vehicle-category-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .vehicle-category-btn {
+            padding: 18px 20px;
+            border: 2.5px solid #e3e3e3;
+            border-radius: 14px;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vehicle-category-btn i {
+            font-size: 24px;
+            color: #B8860B;
+        }
+
+        .vehicle-category-btn:hover {
+            border-color: #B8860B;
+            background: rgba(184, 134, 11, 0.05);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.15);
+        }
+
+        .vehicle-category-btn.active {
+            border-color: #B8860B;
+            background: linear-gradient(135deg, #B8860B, #CD7F32);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.4);
+        }
+
+        .vehicle-category-btn.active i {
+            color: #fff;
+        }
+
         /* Buttons */
         .form-actions {
             display: flex;
@@ -1238,20 +1287,6 @@
             margin-top: 32px;
             padding-top: 28px;
             border-top: 2px solid #e8e8e8;
-        }
-
-        .btn--secondary {
-            background: #f1f1f1;
-            color: #333;
-        }
-
-        .btn--primary:hover {
-            box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .btn--secondary:hover {
-            background: #e5e5e5;
         }
 
         /* Scrollbar */
@@ -1373,6 +1408,7 @@
             .form-actions { flex-direction: column; gap: 20px; }
             .footer__content { flex-direction: column; text-align: center; gap: 20px; }
             .footer__links { justify-content: center; flex-wrap: wrap; }
+            .vehicle-category-buttons { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1869,7 +1905,7 @@
         </div>
     </footer>
 
-    <!-- Enhanced Modern Booking Modal -->
+    <!-- Enhanced Modern Booking Modal with Vehicle Selection -->
     <div class="modal" id="booking-modal">
         <div class="modal__content">
             <div class="modal__header">
@@ -1910,22 +1946,41 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="vehicle-type">Vehicle Type <span class="required">*</span></label>
-                            <select class="form-control" id="vehicle-type" name="vehicle_type" required>
-                                <option value="">Choose vehicle type</option>
-                                <option value="sedan">Executive Sedan (Mercedes S-Class, BMW 5)</option>
-                                <option value="suv">Luxury SUV (BMW 7-Series, Mercedes GLE, Fortuner)</option>
-                                <option value="van">Premium Van (Mercedes Sprinter, Commuter)</option>
+                            <label for="duty-type">Duty Type <span class="required">*</span></label>
+                            <select class="form-control" id="duty-type" name="duty_type" required>
+                                <option value="">Select duty type</option>
+                                <option value="transfer">Transfer</option>
+                                <option value="local">Local</option>
+                                <option value="outstation">Outstation</option>
                             </select>
                         </div>
                     </div>
+
+                    <!-- NEW: Interactive Vehicle Category Selection -->
                     <div class="form-group">
-                        <label for="duty-type">Duty Type <span class="required">*</span></label>
-                        <select class="form-control" id="duty-type" name="duty_type" required>
-                            <option value="">Select duty type</option>
-                            <option value="transfer">Transfer</option>
-                            <option value="local">Local</option>
-                            <option value="outstation">Outstation</option>
+                        <label>Vehicle Category <span class="required">*</span></label>
+                        <div class="vehicle-category-buttons">
+                            <button type="button" class="vehicle-category-btn" data-category="sedan" onclick="selectVehicleCategory('sedan')">
+                                <i class="fas fa-car"></i>
+                                <span>Executive Sedan</span>
+                            </button>
+                            <button type="button" class="vehicle-category-btn" data-category="suv" onclick="selectVehicleCategory('suv')">
+                                <i class="fas fa-car"></i>
+                                <span>Luxury SUV</span>
+                            </button>
+                            <button type="button" class="vehicle-category-btn" data-category="van" onclick="selectVehicleCategory('van')">
+                                <i class="fas fa-shuttle-van"></i>
+                                <span>Premium Van</span>
+                            </button>
+                        </div>
+                        <input type="hidden" id="vehicle-category" name="vehicle_category" required>
+                    </div>
+
+                    <!-- NEW: Dynamic Vehicle Model Dropdown -->
+                    <div class="form-group" id="vehicle-model-group" style="display: none;">
+                        <label for="vehicle-model">Select Vehicle <span class="required">*</span></label>
+                        <select class="form-control" id="vehicle-model" name="vehicle_model" required>
+                            <option value="">Choose a vehicle</option>
                         </select>
                     </div>
                 </div>
@@ -2071,6 +2126,57 @@
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRreGJxbWhrbGJrbmdqY2FpdGljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4MDg1MzMsImV4cCI6MjA3NDM4NDUzM30.wG-_2ZiWoOKTa_x4FMLLH5oiJqRxF2YIfxdCFzO0yos'
         const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
 
+        // Vehicle Catalog
+        const vehicleCatalog = {
+            sedan: {
+                name: "Executive Sedan",
+                models: [
+                    { id: "dzire", name: "Maruti D'zire" },
+                    { id: "aura", name: "Maruti Aura" },
+                    { id: "xcent", name: "Hyundai Xcent" },
+                    { id: "amaze", name: "Honda Amaze" },
+                    { id: "city", name: "Honda City" },
+                    { id: "ciaz", name: "Maruti Ciaz" },
+                    { id: "corolla", name: "Toyota Corolla Altis" },
+                    { id: "bmw5", name: "BMW 5 Series" },
+                    { id: "merc-e", name: "Mercedes E-Class" },
+                    { id: "audi-a6", name: "Audi A6" },
+                    { id: "bmw7", name: "BMW 7 Series" },
+                    { id: "merc-s", name: "Mercedes S-Class" }
+                ]
+            },
+            suv: {
+                name: "Luxury SUV",
+                models: [
+                    { id: "ertiga", name: "Maruti Ertiga" },
+                    { id: "rumion", name: "Maruti Rumion" },
+                    { id: "kia-carens", name: "Kia Carens" },
+                    { id: "innova-crysta", name: "Toyota Innova Crysta" },
+                    { id: "innova-hycross", name: "Toyota Innova Hycross" },
+                    { id: "fortuner", name: "Toyota Fortuner" },
+                    { id: "audi-q", name: "Audi Q7/Q5" },
+                    { id: "merc-gls", name: "Mercedes GLS 400" },
+                    { id: "kia-carnival", name: "Kia Carnival" }
+                ]
+            },
+            van: {
+                name: "Premium Van",
+                models: [
+                    { id: "commuter", name: "Commuter (8-seater)" },
+                    { id: "tempo-13", name: "Tempo Traveler 13-seater" },
+                    { id: "tempo-17", name: "Tempo Traveler 17-seater" },
+                    { id: "urbania-13", name: "Urbania 13-seater" },
+                    { id: "urbania-17", name: "Urbania 17-seater" },
+                    { id: "force-20", name: "Force 20-seater" },
+                    { id: "bus-25", name: "Bus 25-seater" },
+                    { id: "bus-30", name: "Bus 30-seater" },
+                    { id: "bus-35", name: "Bus 35-seater" },
+                    { id: "bus-45", name: "Bus 45-seater" },
+                    { id: "bus-54", name: "Bus 54-seater" }
+                ]
+            }
+        };
+
         // Global variables
         let currentStep = 1;
         const totalSteps = 4;
@@ -2202,8 +2308,55 @@
             }
         });
 
+        // Select Vehicle Category
+        function selectVehicleCategory(category) {
+            // Update active button
+            document.querySelectorAll('.vehicle-category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+
+            // Store selected category
+            document.getElementById('vehicle-category').value = category;
+
+            // Update dropdown options
+            const vehicleModelSelect = document.getElementById('vehicle-model');
+            const models = vehicleCatalog[category].models;
+            
+            vehicleModelSelect.innerHTML = '<option value="">Choose a vehicle</option>';
+            models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model.id;
+                option.textContent = model.name;
+                vehicleModelSelect.appendChild(option);
+            });
+
+            // Show the vehicle model dropdown
+            document.getElementById('vehicle-model-group').style.display = 'block';
+            vehicleModelSelect.focus();
+        }
+
+        // Validate vehicle selection
+        function validateVehicleSelection() {
+            const category = document.getElementById('vehicle-category').value;
+            const model = document.getElementById('vehicle-model').value;
+            
+            if (!category) {
+                alert('Please select a vehicle category');
+                return false;
+            }
+            if (!model) {
+                alert('Please select a specific vehicle');
+                return false;
+            }
+            return true;
+        }
+
         // Form navigation
         function nextStep() {
+            if (currentStep === 1 && !validateVehicleSelection()) {
+                return;
+            }
             if (validateCurrentStep()) {
                 if (currentStep < totalSteps) {
                     currentStep++;
@@ -2342,6 +2495,8 @@
         function resetForm() {
             currentStep = 1;
             bookingForm.reset();
+            document.querySelectorAll('.vehicle-category-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('vehicle-model-group').style.display = 'none';
             updateStepDisplay();
             submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm Booking';
             submitBtn.disabled = false;
