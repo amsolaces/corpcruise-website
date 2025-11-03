@@ -22,6 +22,7 @@
         }
 
         :root {
+            /* Ultra-Premium Color Palette */
             --primary-copper: #B8860B;
             --primary-bronze: #CD7F32;
             --accent-gold: #FFD700;
@@ -35,20 +36,24 @@
             --luxury-black: #000000;
             --error-red: #FF5555;
             
+            /* Premium Gradients */
             --gradient-copper: linear-gradient(135deg, #B8860B, #CD7F32, #DAA520);
             --gradient-dark: linear-gradient(135deg, #000000, #1A1A1A, #2A2A2A);
             --gradient-premium: linear-gradient(135deg, #B8860B 0%, #CD7F32 50%, #FFD700 100%);
             --gradient-overlay: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 26, 26, 0.6));
             
+            /* Enhanced Shadows */
             --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
             --shadow-medium: 0 16px 48px rgba(0, 0, 0, 0.15);
             --shadow-strong: 0 24px 64px rgba(0, 0, 0, 0.25);
             --shadow-copper: 0 12px 40px rgba(184, 134, 11, 0.4);
             --shadow-premium: 0 20px 60px rgba(184, 134, 11, 0.3);
             
+            /* Typography */
             --font-primary: 'Inter', sans-serif;
             --font-accent: 'Playfair Display', serif;
             
+            /* Spacing */
             --section-padding: 140px 0;
             --container-padding: 0 32px;
             --border-radius: 20px;
@@ -69,6 +74,7 @@
             padding: var(--container-padding);
         }
 
+        /* Enhanced Header with FIXED alignment */
         .header {
             position: sticky;
             top: 0;
@@ -102,6 +108,7 @@
             min-width: 0;
         }
 
+        /* Premium Logo with FIXED sizing */
         .logo {
             width: 64px;
             height: 64px;
@@ -280,6 +287,7 @@
             box-shadow: var(--shadow-copper);
         }
 
+        /* Mobile Navigation */
         .nav__toggle {
             display: none;
             flex-direction: column;
@@ -299,7 +307,742 @@
             transition: all 0.3s ease;
         }
 
-        /* Modal Styles */
+        /* Premium Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-dark);
+            color: var(--pure-white);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="4" fill="%23B8860B" opacity="0.15"/><circle cx="800" cy="300" r="3.5" fill="%23CD7F32" opacity="0.2"/></svg>');
+            animation: float 30s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+
+        .hero__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero__text {
+            max-width: 650px;
+        }
+
+        .hero__label {
+            background: rgba(184, 134, 11, 0.2);
+            color: var(--accent-gold);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 40px;
+            display: inline-block;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero__title {
+            font-family: var(--font-accent);
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            background: linear-gradient(135deg, var(--pure-white), #F0F0F0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero__title .highlight {
+            background: var(--gradient-premium);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero__description {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 48px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 520px;
+            font-weight: 400;
+        }
+
+        .hero__actions {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .hero__visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero__car-display {
+            width: 100%;
+            max-width: 600px;
+            height: 450px;
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.15), rgba(205, 127, 50, 0.1));
+            border-radius: var(--border-radius-large);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 3px solid rgba(184, 134, 11, 0.3);
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+        }
+
+        .hero__car-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: calc(var(--border-radius-large) - 3px);
+            opacity: 0.95;
+            transition: all 0.4s ease;
+        }
+
+        .hero__car-display:hover .hero__car-image {
+            opacity: 1;
+            transform: scale(1.08);
+        }
+
+        .hero__car-overlay {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(184, 134, 11, 0.3);
+        }
+
+        .hero__car-name {
+            color: var(--pure-white);
+            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 6px;
+            font-family: var(--font-accent);
+        }
+
+        .hero__car-type {
+            color: var(--accent-gold);
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 600;
+        }
+
+        .hero__stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 80px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat__number {
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--accent-gold);
+            font-family: var(--font-accent);
+            margin-bottom: 8px;
+        }
+
+        .stat__label {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        /* Premium Services Section */
+        .services {
+            padding: var(--section-padding);
+            background: var(--light-gray);
+        }
+
+        .section__header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section__label {
+            background: rgba(184, 134, 11, 0.1);
+            color: var(--primary-copper);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 24px;
+            display: inline-block;
+            border: 2px solid rgba(184, 134, 11, 0.2);
+        }
+
+        .section__title {
+            font-family: var(--font-accent);
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section__description {
+            font-size: 20px;
+            color: var(--warm-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .services__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--pure-white);
+            border-radius: var(--border-radius-large);
+            padding: 48px 40px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s ease;
+            border: 2px solid rgba(184, 134, 11, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-premium);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-16px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card__icon {
+            width: 96px;
+            height: 96px;
+            background: var(--gradient-premium);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            font-size: 36px;
+            color: var(--pure-white);
+            box-shadow: var(--shadow-copper);
+        }
+
+        .service-card__title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+            font-family: var(--font-accent);
+        }
+
+        .service-card__description {
+            color: var(--warm-gray);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        /* Premium Fleet Section */
+        .fleet {
+            padding: var(--section-padding);
+            background: var(--pure-white);
+        }
+
+        .fleet__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 48px;
+        }
+
+        .fleet-card {
+            background: var(--pure-white);
+            border-radius: var(--border-radius-large);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s ease;
+            border: 2px solid rgba(184, 134, 11, 0.1);
+        }
+
+        .fleet-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .fleet-card__image {
+            height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fleet-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .fleet-card:hover .fleet-card__image img {
+            transform: scale(1.15);
+        }
+
+        .fleet-card__badge {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            background: var(--gradient-premium);
+            color: var(--pure-white);
+            padding: 10px 20px;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .fleet-card__content {
+            padding: 40px;
+        }
+
+        .fleet-card__title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+            font-family: var(--font-accent);
+        }
+
+        .fleet-card__features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .fleet-card__features li {
+            padding: 10px 0;
+            color: var(--warm-gray);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .fleet-card__features li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary-copper);
+            border-radius: 50%;
+        }
+
+        /* Features Section */
+        .features {
+            padding: var(--section-padding);
+            background: var(--gradient-dark);
+            color: var(--pure-white);
+        }
+
+        .features .section__title {
+            color: var(--pure-white);
+        }
+
+        .features__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--border-radius-large);
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .feature-card__icon {
+            width: 88px;
+            height: 88px;
+            background: var(--gradient-premium);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            font-size: 32px;
+            color: var(--pure-white);
+            box-shadow: var(--shadow-copper);
+        }
+
+        .feature-card__title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--pure-white);
+            font-family: var(--font-accent);
+        }
+
+        .feature-card__description {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: var(--section-padding);
+            background: var(--light-gray);
+        }
+
+        .testimonials__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--pure-white);
+            border-radius: var(--border-radius-large);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s ease;
+            border-top: 6px solid var(--primary-copper);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .testimonial-card__rating {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-card__rating i {
+            color: var(--accent-gold);
+            font-size: 16px;
+        }
+
+        .testimonial-card__content {
+            font-style: italic;
+            color: var(--warm-gray);
+            line-height: 1.8;
+            margin-bottom: 28px;
+            font-size: 16px;
+        }
+
+        .testimonial-card__author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .testimonial-card__avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-premium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .testimonial-card__info h4 {
+            color: var(--charcoal);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+
+        .testimonial-card__info p {
+            color: var(--warm-gray);
+            font-size: 14px;
+        }
+
+        /* Premium Showcase Section */
+        .fleet-showcase {
+            padding: 100px 0;
+            background: var(--charcoal);
+            color: var(--pure-white);
+        }
+
+        .fleet-showcase__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .showcase-image {
+            position: relative;
+            border-radius: var(--border-radius-large);
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .showcase-image:hover img {
+            transform: scale(1.08);
+        }
+
+        .showcase-badge {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            background: var(--gradient-premium);
+            color: var(--pure-white);
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .showcase-info h3 {
+            font-family: var(--font-accent);
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--pure-white);
+        }
+
+        .showcase-info p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 32px;
+        }
+
+        .showcase-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .showcase-features li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .showcase-features li::before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--section-padding);
+            background: var(--charcoal);
+            color: var(--pure-white);
+        }
+
+        .contact .section__title {
+            color: var(--pure-white);
+        }
+
+        .contact__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 40px;
+            border-radius: var(--border-radius-large);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .contact-card__icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-premium);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 28px;
+            color: var(--pure-white);
+            box-shadow: var(--shadow-copper);
+        }
+
+        .contact-card__title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--pure-white);
+            font-family: var(--font-accent);
+        }
+
+        .contact-card__info {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .contact-card__info a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            font-weight: 600;
+        }
+
+        .contact-card__info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--luxury-black);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 48px 0;
+            border-top: 2px solid rgba(184, 134, 11, 0.3);
+        }
+
+        .footer__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer__brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer__logo {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-premium);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .footer__copyright {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .footer__links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer__links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer__links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Enhanced Booking Modal */
         .modal {
             position: fixed;
             inset: 0;
@@ -379,6 +1122,7 @@
             background: rgba(184, 134, 11, 0.1);
         }
 
+        /* Progress bar */
         .progress-bar {
             height: 6px;
             background: #eee;
@@ -394,6 +1138,7 @@
             transition: 0.3s;
         }
 
+        /* Form steps */
         .form-step {
             display: none;
             animation: fadeIn 0.4s ease;
@@ -424,6 +1169,7 @@
             color: var(--error-red);
         }
 
+        /* Form groups */
         .form-group {
             margin-bottom: 24px;
         }
@@ -434,6 +1180,7 @@
             gap: 22px;
         }
 
+        /* Labels */
         label {
             display: block;
             font: 600 14px var(--font-primary);
@@ -446,6 +1193,7 @@
             font-weight: 900;
         }
 
+        /* Form controls */
         .form-control {
             width: 100%;
             padding: 15px 16px;
@@ -481,6 +1229,7 @@
             margin-top: 4px;
         }
 
+        /* Vehicle Category Buttons */
         .vehicle-category-buttons {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -529,6 +1278,7 @@
             color: #fff;
         }
 
+        /* Buttons */
         .form-actions {
             display: flex;
             gap: 18px;
@@ -539,6 +1289,7 @@
             border-top: 2px solid #e8e8e8;
         }
 
+        /* Scrollbar */
         .modal__content::-webkit-scrollbar {
             width: 6px;
         }
@@ -548,6 +1299,7 @@
             border-radius: 3px;
         }
 
+        /* Loading */
         .loading {
             display: inline-block;
             width: 24px;
@@ -562,6 +1314,7 @@
             to { transform: rotate(360deg); }
         }
 
+        /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(40px);
@@ -575,6 +1328,33 @@
             }
         }
 
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            animation: slideLeft 1s ease forwards;
+        }
+
+        @keyframes slideLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(60px);
+            animation: slideRight 1s ease forwards;
+        }
+
+        @keyframes slideRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .nav__brand { gap: 16px; }
             .brand-info h1 { font-size: 28px; }
@@ -611,8 +1391,23 @@
             }
             .nav__actions { flex-direction: column; gap: 16px; }
             .nav__toggle { display: flex; }
+            .hero__content { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+            .hero__title { font-size: 56px; }
+            .hero__stats { justify-content: center; gap: 40px; }
+            .section__title { font-size: 42px; }
+            .services__grid,
+            .fleet__grid,
+            .features__grid,
+            .testimonials__grid,
+            .contact__grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .fleet-showcase__content { grid-template-columns: 1fr; gap: 48px; }
             .form-row { grid-template-columns: 1fr; gap: 20px; }
             .form-actions { flex-direction: column; gap: 20px; }
+            .footer__content { flex-direction: column; text-align: center; gap: 20px; }
+            .footer__links { justify-content: center; flex-wrap: wrap; }
             .vehicle-category-buttons { grid-template-columns: 1fr; }
         }
     </style>
@@ -670,7 +1465,447 @@
         </nav>
     </header>
 
-    <!-- Booking Modal -->
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__text">
+                    <div class="hero__label fade-in">
+                        <i class="fas fa-medal"></i> Since 2018 • Ex-Defense Founded
+                    </div>
+                    <h1 class="hero__title slide-left">
+                        Premium <span class="highlight">Corporate</span><br> Mobility Solutions
+                    </h1>
+                    <p class="hero__description fade-in">
+                        Experience unmatched luxury and reliability with our premium fleet, professional chauffeurs, and cutting-edge technology across India's major cities.
+                    </p>
+                    <div class="hero__actions fade-in">
+                        <button class="btn btn--primary" onclick="openBookingModal()">
+                            <i class="fas fa-car"></i> Book Your Ride
+                        </button>
+                        <a href="#fleet" class="btn btn--secondary">
+                            <i class="fas fa-eye"></i> Explore Fleet
+                        </a>
+                    </div>
+                    <div class="hero__stats slide-left">
+                        <div class="stat">
+                            <div class="stat__number">1500+</div>
+                            <div class="stat__label">Happy Clients</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">25+</div>
+                            <div class="stat__label">Cities Covered</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">24/7</div>
+                            <div class="stat__label">Available</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__visual slide-right">
+                    <div class="hero__car-display">
+                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="BMW 5 Series Luxury Sedan" class="hero__car-image">
+                        <div class="hero__car-overlay">
+                            <div class="hero__car-name">BMW 5 Series Executive</div>
+                            <div class="hero__car-type">Premium Sedan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__label fade-in">Our Premium Services</div>
+                <h2 class="section__title fade-in">Complete Mobility Solutions</h2>
+                <p class="section__description fade-in">
+                    From executive airport transfers to large-scale corporate events, we deliver tailored transportation experiences that exceed expectations.
+                </p>
+            </div>
+            <div class="services__grid">
+                <div class="service-card fade-in">
+                    <div class="service-card__icon">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h3 class="service-card__title">Airport Transfer</h3>
+                    <p class="service-card__description">
+                        Punctual luxury airport services with flight tracking, meet & greet, and seamless luggage handling for executives.
+                    </p>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">Book Transfer</button>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-card__icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-card__title">Corporate Transportation</h3>
+                    <p class="service-card__description">
+                        Professional executive transport for meetings, conferences, and business events with dedicated account management.
+                    </p>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">Book Corporate</button>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-card__icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="service-card__title">Employee Transportation</h3>
+                    <p class="service-card__description">
+                        Premium group transportation for corporate events, functions, and employee movements with customizable packages.
+                    </p>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">Book Event</button>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-card__icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3 class="service-card__title">Intercity Travel</h3>
+                    <p class="service-card__description">
+                        Comfortable long-distance luxury travel with experienced chauffeurs and vehicles equipped for extended journeys.
+                    </p>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">Book Intercity</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Fleet Section -->
+    <section class="fleet" id="fleet">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__label fade-in">Our Luxury Fleet</div>
+                <h2 class="section__title fade-in">Choose Your Perfect Ride</h2>
+                <p class="section__description fade-in">
+                    Our meticulously maintained fleet features the finest vehicles equipped with premium amenities to ensure unparalleled comfort and style.
+                </p>
+            </div>
+            <div class="fleet__grid">
+                <div class="fleet-card fade-in">
+                    <div class="fleet-card__image">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/2022-mercedes-benz-s500-4matic-123-1642184026.jpg?crop=0.458xw:0.387xh;0.316xw,0.418xh&resize=700:*" alt="Mercedes S-Class">
+                        <div class="fleet-card__badge">Executive Sedans</div>
+                    </div>
+                    <div class="fleet-card__content">
+                        <h3 class="fleet-card__title">Mercedes S-Class, BMW 5 Series</h3>
+                        <ul class="fleet-card__features">
+                            <li>Premium leather interior</li>
+                            <li>Advanced climate control</li>
+                            <li>High-speed Wi-Fi</li>
+                            <li>Professional chauffeur</li>
+                            <li>Complimentary refreshments</li>
+                            <li>Privacy partition available</li>
+                        </ul>
+                        <button class="btn btn--primary" onclick="openBookingModal()">
+                            <i class="fas fa-calendar-check"></i> Book Sedan
+                        </button>
+                    </div>
+                </div>
+                <div class="fleet-card fade-in">
+                    <div class="fleet-card__image">
+                        <img src="https://imgd.aeplcdn.com/1920x1080/n/cw/ec/44709/fortuner-facelift-exterior-rear-view.jpeg?q=80&q=80" alt="BMW 7 Series">
+                        <div class="fleet-card__badge">Luxury SUVs</div>
+                    </div>
+                    <div class="fleet-card__content">
+                        <h3 class="fleet-card__title">BMW 7-Series, Mercedes GLE, Fortuner</h3>
+                        <ul class="fleet-card__features">
+                            <li>Spacious luxury cabin</li>
+                            <li>Premium sound system</li>
+                            <li>Panoramic sunroof</li>
+                            <li>All-terrain capability</li>
+                            <li>Entertainment screens</li>
+                            <li>Ambient lighting</li>
+                        </ul>
+                        <button class="btn btn--primary" onclick="openBookingModal()">
+                            <i class="fas fa-calendar-check"></i> Book SUV
+                        </button>
+                    </div>
+                </div>
+                <div class="fleet-card fade-in">
+                    <div class="fleet-card__image">
+                        <img src="https://files.toyota.com.bh/s3fs-public/2019-10/g_h_5_3.jpg?utm_source=Website&utm_medium=Website&utm_campaign=Website" alt="Mercedes Sprinter">
+                        <div class="fleet-card__badge">Premium Vans</div>
+                    </div>
+                    <div class="fleet-card__content">
+                        <h3 class="fleet-card__title">Mercedes Sprinter, Commuter</h3>
+                        <ul class="fleet-card__features">
+                            <li>8-12 passenger capacity</li>
+                            <li>Conference seating layout</li>
+                            <li>Mini bar & refreshments</li>
+                            <li>Extra luggage space</li>
+                            <li>Corporate branding options</li>
+                            <li>Power outlets & USB charging</li>
+                        </ul>
+                        <button class="btn btn--primary" onclick="openBookingModal()">
+                            <i class="fas fa-calendar-check"></i> Book Van
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Showcase Section -->
+    <section class="fleet-showcase">
+        <div class="container">
+            <div class="fleet-showcase__content">
+                <div class="showcase-image fade-in">
+                    <img src="https://www.carmag.co.za/wp-content/uploads/2023/03/TF-4-1024x614.webp" alt="Toyota Fortuner Premium SUV">
+                    <div class="showcase-badge">Premium SUV</div>
+                </div>
+                <div class="showcase-info fade-in">
+                    <h3>Toyota Fortuner Premium</h3>
+                    <p>
+                        Experience the perfect blend of luxury and capability with our Toyota Fortuner fleet. Designed for executives who demand both comfort and performance, these vehicles offer premium interiors, advanced safety features, and commanding road presence.
+                    </p>
+                    <ul class="showcase-features">
+                        <li>7-seater luxury configuration</li>
+                        <li>Advanced safety systems</li>
+                        <li>Premium leather upholstery</li>
+                        <li>Powerful diesel engine</li>
+                        <li>All-wheel drive capability</li>
+                        <li>Corporate executive comfort</li>
+                    </ul>
+                    <button class="btn btn--primary" onclick="openBookingModal()">
+                        <i class="fas fa-star"></i> Book Fortuner
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__label fade-in">Why Choose CorpCruise</div>
+                <h2 class="section__title fade-in">Excellence in Every Detail</h2>
+                <p class="section__description fade-in">
+                    Our unwavering commitment to safety, luxury, and professionalism sets us apart as the premier choice for corporate transportation.
+                </p>
+            </div>
+            <div class="features__grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="feature-card__title">Professional Chauffeurs</h3>
+                    <p class="feature-card__description">
+                        Rigorously trained, background-verified, and uniformed professionals with exceptional driving skills and customer service excellence.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+                    <h3 class="feature-card__title">Safety First</h3>
+                    <p class="feature-card__description">
+                        Advanced safety protocols, regular vehicle maintenance, GPS tracking, panic button feature, and 24/7 monitoring ensure your complete peace of mind.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-card__title">Smart Technology</h3>
+                    <p class="feature-card__description">
+                        Real-time booking, live tracking, automated notifications, and digital receipts for a seamless, tech-enabled experience.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="feature-card__title">Transparent Billing</h3>
+                    <p class="feature-card__description">
+                        Clear pricing structure, detailed invoices, corporate billing options, and our no-hidden-charges guarantee.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="feature-card__title">ISO Certified</h3>
+                    <p class="feature-card__description">
+                        Certified for quality management and security standards ensuring consistent service excellence and data protection.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-card__title">24/7 Support</h3>
+                    <p class="feature-card__description">
+                        Round-the-clock customer support, emergency assistance, and dedicated account managers for all corporate clients.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__label fade-in">Client Testimonials</div>
+                <h2 class="section__title fade-in">Trusted by Industry Leaders</h2>
+                <p class="section__description fade-in">
+                    Discover why leading corporations and executives choose CorpCruise for their luxury transportation needs across India.
+                </p>
+            </div>
+            <div class="testimonials__grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-card__rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-card__content">
+                        "CorpCruise has transformed our corporate transportation experience. Their attention to detail, punctuality, and luxury service makes every journey exceptional. The professional chauffeurs and premium fleet truly set them apart."
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">MS</div>
+                        <div class="testimonial-card__info">
+                            <h4>Mahipal Singh Rawat</h4>
+                            <p>Business Head, JetMobility Pvt. Ltd.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-card__rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-card__content">
+                        "Outstanding service with impeccable timing. The booking process is seamless, and the vehicles are always pristine. CorpCruise has become our go-to choice for all executive transportation needs."
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">RK</div>
+                        <div class="testimonial-card__info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>CEO, TechCorp Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-card__rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-card__content">
+                        "The luxury and professionalism of CorpCruise is unmatched. From the moment you book until you reach your destination, every aspect is handled with precision and care. Truly a premium experience."
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">PS</div>
+                        <div class="testimonial-card__info">
+                            <h4>Priya Sharma</h4>
+                            <p>HR Director, Global Industries</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__label fade-in">Get In Touch</div>
+                <h2 class="section__title fade-in">Contact Our Expert Team</h2>
+                <p class="section__description fade-in">
+                    Ready to experience luxury transportation? Contact us for bookings, corporate packages, or any inquiries. We're here to serve you 24/7.
+                </p>
+            </div>
+            <div class="contact__grid">
+                <div class="contact-card fade-in">
+                    <div class="contact-card__icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="contact-card__title">Call Us</h3>
+                    <div class="contact-card__info">
+                        <p><a href="tel:+919920592531">+91-9920592531</a></p>
+                        <p><a href="tel:+919136033135">+91-9136033135</a></p>
+                        <p>Available 24/7 for bookings</p>
+                    </div>
+                </div>
+                <div class="contact-card fade-in">
+                    <div class="contact-card__icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="contact-card__title">Email Us</h3>
+                    <div class="contact-card__info">
+                        <p><a href="mailto:info@corpcruise.com">info@corpcruise.com</a></p>
+                        <p><a href="mailto:sales@corpcruise.com">sales@corpcruise.com</a></p>
+                        <p>Response within 2 hours</p>
+                    </div>
+                </div>
+                <div class="contact-card fade-in">
+                    <div class="contact-card__icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="contact-card__title">Visit Us</h3>
+                    <div class="contact-card__info">
+                        <p>Indo Saigon Non Residential Premises</p>
+                        <p>A K Road, Marol Naka, Andheri East</p>
+                        <p>Mumbai, Maharashtra 400059</p>
+                    </div>
+                </div>
+                <div class="contact-card fade-in">
+                    <div class="contact-card__icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="contact-card__title">Service Coverage</h3>
+                    <div class="contact-card__info">
+                        <p>Mumbai, Delhi, Bangalore, Chennai</p>
+                        <p>Pune, Kolkata, Hyderabad, Ahmedabad</p>
+                        <p>Plus 20+ other major cities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                            <defs>
+                                <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#B8860B;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M16,4 Q24,8 28,16 Q24,24 16,28 Q8,24 4,16 Q8,8 16,4 Z" fill="url(#footerGradient)" opacity="0.8"/>
+                            <circle cx="16" cy="16" r="3" fill="url(#footerGradient)"/>
+                        </svg>
+                    </div>
+                    <div class="footer__copyright">
+                        © 2025 CorpCruise.com - All rights reserved | Founded by Ex-Defense Personnel
+                    </div>
+                </div>
+                <ul class="footer__links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Corporate</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Modern Booking Modal with Vehicle Selection -->
     <div class="modal" id="booking-modal">
         <div class="modal__content">
             <div class="modal__header">
@@ -681,6 +1916,7 @@
                 <p class="modal__subtitle">Experience premium corporate transportation with CorpCruise</p>
             </div>
 
+            <!-- Progress Bar -->
             <div class="progress-bar">
                 <div class="progress-bar__fill" style="width: 25%;"></div>
             </div>
@@ -700,43 +1936,13 @@
                                 <option value="">Choose your city</option>
                                 <option value="mumbai">Mumbai</option>
                                 <option value="delhi">Delhi</option>
-                                <option value="bhubaneshwar">Bhubaneshwar</option>
-                                <option value="kolkata">Kolkata</option>
-                                <option value="ranchi">Ranchi</option>
-                                <option value="chennai">Chennai</option>
-                                <option value="lucknow">Lucknow</option>
                                 <option value="bengaluru">Bengaluru</option>
-                                <option value="amritsar">Amritsar</option>
-                                <option value="hyderabad">Hyderabad</option>
-                                <option value="vijaywada">Vijaywada</option>
-                                <option value="chandigarh">Chandigarh</option>
-                                <option value="vizag">Vizag</option>
-                                <option value="nainital">Nainital</option>
-                                <option value="tirupati">Tirupati</option>
-                                <option value="rishikesh">Rishikesh</option>
-                                <option value="jalandhar">Jalandhar</option>
-                                <option value="dehradun">Dehradun</option>
-                                <option value="madurai">Madurai</option>
-                                <option value="allahabad">Allahabad</option>
-                                <option value="coimbatore">Coimbatore</option>
-                                <option value="varanasi">Varanasi</option>
-                                <option value="indore">Indore</option>
-                                <option value="bhopal">Bhopal</option>
-                                <option value="nagpur">Nagpur</option>
-                                <option value="gwalior">Gwalior</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="kolkata">Kolkata</option>
                                 <option value="pune">Pune</option>
-                                <option value="aurangabad">Aurangabad</option>
-                                <option value="nashik">Nashik</option>
-                                <option value="shirdi">Shirdi</option>
-                                <option value="pondicherry">Pondicherry</option>
-                                <option value="patna">Patna</option>
-                                <option value="ludhiana">Ludhiana</option>
-                                <option value="mysore">Mysore</option>
-                                <option value="manipal">Manipal</option>
-                                <option value="kochi">Kochi</option>
-                                <option value="dubai">Dubai</option>
-                                <option value="nepal">Nepal</option>
-                                <option value="bangladesh">Bangladesh</option>
+                                <option value="hyderabad">Hyderabad</option>
+                                <option value="ahmedabad">Ahmedabad</option>
+                                <option value="jaipur">Jaipur</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -750,7 +1956,7 @@
                         </div>
                     </div>
 
-                    <!-- Vehicle Category Selection -->
+                    <!-- NEW: Interactive Vehicle Category Selection -->
                     <div class="form-group">
                         <label>Vehicle Category <span class="required">*</span></label>
                         <div class="vehicle-category-buttons">
@@ -770,7 +1976,7 @@
                         <input type="hidden" id="vehicle-category" name="vehicle_category" required>
                     </div>
 
-                    <!-- Vehicle Model Dropdown -->
+                    <!-- NEW: Dynamic Vehicle Model Dropdown -->
                     <div class="form-group" id="vehicle-model-group" style="display: none;">
                         <label for="vehicle-model">Select Vehicle <span class="required">*</span></label>
                         <select class="form-control" id="vehicle-model" name="vehicle_model" required>
@@ -822,6 +2028,7 @@
                         </div>
                     </div>
 
+                    <!-- Transfer Trip Fields -->
                     <div class="transfer-group" style="display: none;">
                         <div class="form-group">
                             <label for="pickup-address">Pickup Address <span class="required">*</span></label>
@@ -833,6 +2040,7 @@
                         </div>
                     </div>
 
+                    <!-- Local Trip Fields -->
                     <div class="local-group" style="display: none;">
                         <div class="form-group">
                             <label for="local-pickup">Pickup Address <span class="required">*</span></label>
@@ -844,6 +2052,7 @@
                         </div>
                     </div>
 
+                    <!-- Outstation Trip Fields -->
                     <div class="outstation-group" style="display: none;">
                         <div class="form-row">
                             <div class="form-group">
@@ -908,13 +2117,16 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Add Supabase JavaScript SDK -->
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    
     <script>
+        // Initialize Supabase
         const supabaseUrl = 'https://tkxbqmhklbkngjcaitic.supabase.co'
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRreGJxbWhrbGJrbmdqY2FpdGljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4MDg1MzMsImV4cCI6MjA3NDM4NDUzM30.wG-_2ZiWoOKTa_x4FMLLH5oiJqRxF2YIfxdCFzO0yos'
         const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
 
+        // Vehicle Catalog
         const vehicleCatalog = {
             sedan: {
                 name: "Executive Sedan",
@@ -965,8 +2177,11 @@
             }
         };
 
+        // Global variables
         let currentStep = 1;
         const totalSteps = 4;
+
+        // DOM elements
         const header = document.getElementById('header');
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
@@ -977,14 +2192,17 @@
         const submitBtn = document.getElementById('submit-btn');
         const progressBar = document.querySelector('.progress-bar__fill');
 
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             setMinDate();
             addScrollEffects();
             addSmoothScrolling();
             addFormValidation();
+            initializeAnimations();
             initializeDutyTypeToggle();
         });
 
+        // Set minimum date
         function setMinDate() {
             const today = new Date().toISOString().split('T')[0];
             const pickupDate = document.getElementById('pickup-date');
@@ -993,6 +2211,7 @@
             }
         }
 
+        // Header scroll effects
         function addScrollEffects() {
             window.addEventListener('scroll', function() {
                 const scrolled = window.scrollY > 100;
@@ -1000,6 +2219,7 @@
             });
         }
 
+        // Smooth scrolling
         function addSmoothScrolling() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -1014,6 +2234,25 @@
             });
         }
 
+        // Animations
+        function initializeAnimations() {
+            const animationElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        entry.target.style.animationDelay = Math.random() * 0.4 + 's';
+                    }
+                });
+            }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
+
+            animationElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+        }
+
+        // Duty type toggle
         function initializeDutyTypeToggle() {
             const dutyTypeSelect = document.getElementById('duty-type');
             const transferGroup = document.querySelector('.transfer-group');
@@ -1037,11 +2276,13 @@
             }
         }
 
+        // Mobile menu toggle
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
 
+        // Modal functions
         function openBookingModal() {
             bookingModal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1053,26 +2294,32 @@
             resetForm();
         }
 
+        // Close modal when clicking outside
         bookingModal.addEventListener('click', function(e) {
             if (e.target === bookingModal) {
                 closeBookingModal();
             }
         });
 
+        // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && bookingModal.classList.contains('active')) {
                 closeBookingModal();
             }
         });
 
+        // Select Vehicle Category
         function selectVehicleCategory(category) {
+            // Update active button
             document.querySelectorAll('.vehicle-category-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.querySelector(`[data-category="${category}"]`).classList.add('active');
 
+            // Store selected category
             document.getElementById('vehicle-category').value = category;
 
+            // Update dropdown options
             const vehicleModelSelect = document.getElementById('vehicle-model');
             const models = vehicleCatalog[category].models;
             
@@ -1084,10 +2331,12 @@
                 vehicleModelSelect.appendChild(option);
             });
 
+            // Show the vehicle model dropdown
             document.getElementById('vehicle-model-group').style.display = 'block';
             vehicleModelSelect.focus();
         }
 
+        // Validate vehicle selection
         function validateVehicleSelection() {
             const category = document.getElementById('vehicle-category').value;
             const model = document.getElementById('vehicle-model').value;
@@ -1103,6 +2352,7 @@
             return true;
         }
 
+        // Form navigation
         function nextStep() {
             if (currentStep === 1 && !validateVehicleSelection()) {
                 return;
@@ -1143,6 +2393,7 @@
             }
         }
 
+        // Form validation
         function validateCurrentStep() {
             const currentFormStep = document.getElementById(`step-${currentStep}`);
             const requiredFields = currentFormStep.querySelectorAll('[required]');
@@ -1168,6 +2419,7 @@
             return isValid;
         }
 
+        // Real-time validation
         function addFormValidation() {
             const formFields = document.querySelectorAll('.form-control');
             formFields.forEach(field => {
@@ -1191,6 +2443,7 @@
             });
         }
 
+        // Form submission
         bookingForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             if (validateCurrentStep()) {
@@ -1238,6 +2491,7 @@
             }
         });
 
+        // Reset form
         function resetForm() {
             currentStep = 1;
             bookingForm.reset();
