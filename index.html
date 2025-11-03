@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CorpCruise - Luxury Corporate Mobility Solutions</title>
     <meta name="description" content="Premium corporate transportation services with luxury fleet, professional chauffeurs, and IT-enabled tracking across major Indian cities.">
-
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <style>
         * {
             margin: 0;
@@ -34,24 +34,25 @@
             --pure-white: #FFFFFF;
             --cream: #FFF8DC;
             --luxury-black: #000000;
-
+            --error-red: #FF5555;
+            
             /* Premium Gradients */
             --gradient-copper: linear-gradient(135deg, #B8860B, #CD7F32, #DAA520);
             --gradient-dark: linear-gradient(135deg, #000000, #1A1A1A, #2A2A2A);
             --gradient-premium: linear-gradient(135deg, #B8860B 0%, #CD7F32 50%, #FFD700 100%);
             --gradient-overlay: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 26, 26, 0.6));
-
+            
             /* Enhanced Shadows */
             --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
             --shadow-medium: 0 16px 48px rgba(0, 0, 0, 0.15);
             --shadow-strong: 0 24px 64px rgba(0, 0, 0, 0.25);
             --shadow-copper: 0 12px 40px rgba(184, 134, 11, 0.4);
             --shadow-premium: 0 20px 60px rgba(184, 134, 11, 0.3);
-
+            
             /* Typography */
             --font-primary: 'Inter', sans-serif;
             --font-accent: 'Playfair Display', serif;
-
+            
             /* Spacing */
             --section-padding: 140px 0;
             --container-padding: 0 32px;
@@ -104,7 +105,7 @@
             align-items: center;
             gap: 20px;
             flex: 1;
-            min-width: 0; /* Ensures proper text wrapping */
+            min-width: 0;
         }
 
         /* Premium Logo with FIXED sizing */
@@ -119,7 +120,7 @@
             border-radius: 16px;
             background: var(--gradient-premium);
             box-shadow: var(--shadow-copper);
-            flex-shrink: 0; /* Prevents logo from shrinking */
+            flex-shrink: 0;
         }
 
         .logo svg {
@@ -128,12 +129,11 @@
             transform: scale(0.9);
         }
 
-        /* FIXED brand info to ensure visibility */
         .brand-info {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            min-width: 0; /* Allows proper text wrapping */
+            min-width: 0;
             flex: 1;
         }
 
@@ -147,7 +147,7 @@
             background-clip: text;
             margin: 0;
             letter-spacing: -1px;
-            white-space: nowrap; /* Prevents wrapping */
+            white-space: nowrap;
         }
 
         .brand-info .tagline {
@@ -157,13 +157,13 @@
             letter-spacing: 1.5px;
             font-weight: 600;
             margin-top: 2px;
-            white-space: nowrap; /* Prevents wrapping */
+            white-space: nowrap;
         }
 
         .nav__menu {
             display: flex;
             align-items: center;
-            flex-shrink: 0; /* Prevents menu from shrinking */
+            flex-shrink: 0;
         }
 
         .nav__list {
@@ -287,7 +287,7 @@
             box-shadow: var(--shadow-copper);
         }
 
-        /* Mobile Navigation with FIXED alignment */
+        /* Mobile Navigation */
         .nav__toggle {
             display: none;
             flex-direction: column;
@@ -325,7 +325,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="4" fill="%23B8860B" opacity="0.15"/><circle cx="800" cy="300" r="3" fill="%23CD7F32" opacity="0.2"/><circle cx="400" cy="700" r="3.5" fill="%23FFD700" opacity="0.1"/><circle cx="700" cy="150" r="2.5" fill="%23B8860B" opacity="0.25"/><circle cx="300" cy="500" r="3" fill="%23CD7F32" opacity="0.15"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="4" fill="%23B8860B" opacity="0.15"/><circle cx="800" cy="300" r="3.5" fill="%23CD7F32" opacity="0.2"/></svg>');
             animation: float 30s infinite linear;
         }
 
@@ -404,7 +404,6 @@
             align-items: center;
         }
 
-        /* Enhanced Car Display */
         .hero__car-display {
             width: 100%;
             max-width: 600px;
@@ -830,7 +829,7 @@
             font-size: 14px;
         }
 
-        /* Premium Showcase Section with CORRECT Fortuner Image */
+        /* Premium Showcase Section */
         .fleet-showcase {
             padding: 100px 0;
             background: var(--charcoal);
@@ -1044,315 +1043,268 @@
         }
 
         /* Enhanced Booking Modal */
-        .modal{
-            position:fixed;inset:0;
-            display:flex;align-items:center;justify-content:center;
-            width:100%;height:100%;
-            background:rgba(0,0,0,.85);backdrop-filter:blur(15px);
-            opacity:0;visibility:hidden;transition:.4s ease;
-            z-index:9999;
+        .modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.4s ease;
+            z-index: 9999;
         }
-        .modal.show{opacity:1;visibility:visible}
-
-        .modal__content{
-            background:#fff;
-            width:92%;max-width:680px;max-height:90vh;
-            border-radius:24px;padding:0 38px 40px;
-            overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.25);
-            transform:translateY(40px) scale(.94);transition:.4s ease;
-        }
-        .modal.show .modal__content{transform:translateY(0) scale(1)}
-
-        .modal__header{padding:36px 0 18px;text-align:center;position:relative}
-        .modal__title{font:800 34px var(--font-accent);margin:0;color:#1A1A1A}
-        .modal__subtitle{color:#555;font-size:17px;margin-top:6px}
-        .modal__close{
-            position:absolute;top:20px;right:28px;font-size:26px;
-            width:46px;height:46px;border-radius:50%;
-            display:flex;align-items:center;justify-content:center;
-            border:none;background:transparent;color:#777;cursor:pointer;transition:.25s;
-        }
-        .modal__close:hover{color:#B8860B;background:rgba(184,134,11,.12)}
-
-        /* progress bar */
-        .progress-bar{height:6px;background:#eee;border-radius:3px;overflow:hidden;margin-bottom:32px}
-        .progress-bar__fill{height:100%;width:25%;background:linear-gradient(90deg,#B8860B,#FFD700);transition:.3s}
-
-        /* step wrapper */
-        .form-step{display:none;animation:fadeIn .4s ease}
-        .form-step.active{display:block}
-        @keyframes fadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-        .step-title{font:700 18px var(--font-primary);margin:2px 0 22px;color:#1A1A1A}
-
-        /* groups */
-        .form-group{margin-bottom:24px}
-        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-
-        /* inputs */
-        label{display:block;font:600 14px var(--font-primary);margin-bottom:8px;color:#333}
-
-        .form-control{
-            width:100%;padding:15px 16px;border:2px solid #e3e3e3;border-radius:14px;
-            font-size:15px;font-family:inherit;transition:.25s;background:#fff
-        }
-        .form-control:focus{
-            border-color:#B8860B;box-shadow:0 0 0 4px rgba(184,134,11,.15);outline:none
-        }
-
-        /* multiselect note */
-        .small{font-size:12px;color:#777;margin-top:4px}
-
-        /* dots (optional if keeping) */
-        .step-indicator{display:flex;justify-content:center;gap:14px;margin:36px 0}
-        .step-dot{
-            width:14px;height:14px;border-radius:50%;background:#e3e3e3;transition:.3s;position:relative
-        }
-        .step-dot.active{background:#B8860B;transform:scale(1.15)}
-        .step-dot.completed{background:#B8860B}
-        .step-dot.completed::after{
-            content:'✓';position:absolute;inset:0;font-size:10px;font-weight:700;
-            color:#fff;display:flex;align-items:center;justify-content:center
-        }
-
-        /* buttons */
-        .btn{border:none;padding:13px 28px;border-radius:26px;font:600 14px var(--font-primary);cursor:pointer;transition:.25s}
-        .btn--primary{background:linear-gradient(135deg,#B8860B,#FFD700);color:#fff}
-        .btn--secondary{background:#f1f1f1;color:#333}
-        .btn--primary:hover{box-shadow:0 6px 20px rgba(184,134,11,.4);transform:translateY(-2px)}
-        .btn--secondary:hover{background:#e5e5e5}
-
-        /* form action bar */
-        .form-actions{
-            display:flex;gap:18px;justify-content:space-between;align-items:center;
-            margin-top:32px;padding-top:28px;border-top:2px solid #e8e8e8
-        }
-
-        /* modern scrollbar inside modal */
-        .modal__content::-webkit-scrollbar{width:6px}
-        .modal__content::-webkit-scrollbar-thumb{background:#B8860B;border-radius:3px}
-
-        /* responsive */
-        @media(max-width:600px){
-            .modal__content{padding:0 24px 32px}
-            .form-row{grid-template-columns:1fr}
-        }
-
-
-
-
-
-
 
         .modal.active {
             opacity: 1;
             visibility: visible;
         }
 
+        .modal__content {
+            background: #fff;
+            width: 92%;
+            max-width: 680px;
+            max-height: 90vh;
+            border-radius: 24px;
+            padding: 0 38px 40px;
+            overflow: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            transform: translateY(40px) scale(0.94);
+            transition: 0.4s ease;
+        }
+
+        .modal.active .modal__content {
+            transform: translateY(0) scale(1);
+        }
 
         .modal__header {
-            padding: 40px 40px 0;
+            padding: 36px 0 18px;
             text-align: center;
             position: relative;
         }
 
+        .modal__title {
+            font: 800 34px var(--font-accent);
+            margin: 0;
+            color: #1A1A1A;
+        }
 
+        .modal__subtitle {
+            color: #555;
+            font-size: 17px;
+            margin-top: 6px;
+        }
+
+        .modal__close {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            font-size: 26px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: transparent;
+            color: #777;
+            cursor: pointer;
+            transition: 0.25s;
+        }
 
         .modal__close:hover {
             color: var(--primary-copper);
             background: rgba(184, 134, 11, 0.1);
         }
 
-        .modal__title {
-            font-family: var(--font-accent);
-            font-size: 36px;
-            font-weight: 800;
-            color: var(--charcoal);
-            margin-bottom: 16px;
+        /* Progress bar */
+        .progress-bar {
+            height: 6px;
+            background: #eee;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 32px;
         }
 
-        .booking-form {
-            padding: 0 40px 40px;
+        .progress-bar__fill {
+            height: 100%;
+            width: 25%;
+            background: var(--gradient-premium);
+            transition: 0.3s;
         }
 
+        /* Form steps */
         .form-step {
             display: none;
+            animation: fadeIn 0.4s ease;
         }
 
         .form-step.active {
             display: block;
-            animation: fadeIn 0.4s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
         }
 
+        .step-title {
+            font: 700 18px var(--font-primary);
+            margin: 2px 0 22px;
+            color: #1A1A1A;
+        }
+
+        .step-title .required {
+            color: var(--error-red);
+        }
+
+        /* Form groups */
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        /* Labels */
+        label {
+            display: block;
+            font: 600 14px var(--font-primary);
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        label .required {
+            color: var(--error-red);
+            font-weight: 900;
+        }
+
+        /* Form controls */
         .form-control {
             width: 100%;
-            padding: 18px;
-            border: 3px solid #E8E8E8;
-            border-radius: 16px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            font-family: var(--font-primary);
-            background: var(--pure-white);
-            font-weight: 500;
+            padding: 15px 16px;
+            border: 2px solid #e3e3e3;
+            border-radius: 14px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: 0.25s;
+            background: #fff;
         }
 
         .form-control:focus {
-            outline: none;
             border-color: var(--primary-copper);
-            box-shadow: 0 0 0 6px rgba(184, 134, 11, 0.1);
-            background: #FFFEF8;
+            box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.15);
+            outline: none;
         }
 
+        .form-control.error {
+            border-color: var(--error-red);
+            background: #fff5f5;
+        }
+
+        .error-message {
+            color: var(--error-red);
+            font-size: 13px;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        .small {
+            font-size: 12px;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        /* Vehicle Category Buttons */
+        .vehicle-category-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .vehicle-category-btn {
+            padding: 18px 20px;
+            border: 2.5px solid #e3e3e3;
+            border-radius: 14px;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vehicle-category-btn i {
+            font-size: 24px;
+            color: #B8860B;
+        }
+
+        .vehicle-category-btn:hover {
+            border-color: #B8860B;
+            background: rgba(184, 134, 11, 0.05);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.15);
+        }
+
+        .vehicle-category-btn.active {
+            border-color: #B8860B;
+            background: linear-gradient(135deg, #B8860B, #CD7F32);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.4);
+        }
+
+        .vehicle-category-btn.active i {
+            color: #fff;
+        }
+
+        /* Buttons */
         .form-actions {
             display: flex;
+            gap: 18px;
             justify-content: space-between;
             align-items: center;
-            margin-top: 40px;
-            padding-top: 32px;
-            border-top: 2px solid #E8E8E8;
+            margin-top: 32px;
+            padding-top: 28px;
+            border-top: 2px solid #e8e8e8;
         }
 
-        /* Responsive Design with FIXED alignment */
-        @media (max-width: 1024px) {
-            .nav__brand {
-                gap: 16px;
-            }
-
-            .brand-info h1 {
-                font-size: 28px;
-            }
-
-            .brand-info .tagline {
-                font-size: 12px;
-            }
-
-            .nav__list {
-                gap: 32px;
-                margin-right: 32px;
-            }
+        /* Scrollbar */
+        .modal__content::-webkit-scrollbar {
+            width: 6px;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            .nav {
-                padding: 16px 20px;
-            }
-
-            .nav__brand {
-                gap: 12px;
-            }
-
-            .brand-info h1 {
-                font-size: 24px;
-            }
-
-            .brand-info .tagline {
-                font-size: 11px;
-            }
-
-            .nav__menu {
-                position: fixed;
-                top: 90px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 90px);
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(30px);
-                transition: left 0.4s ease;
-                flex-direction: column;
-                justify-content: start;
-                padding: 48px 0;
-            }
-
-            .nav__menu.active {
-                left: 0;
-            }
-
-            .nav__list {
-                flex-direction: column;
-                gap: 32px;
-                text-align: center;
-                margin-right: 0;
-                margin-bottom: 40px;
-            }
-
-            .nav__actions {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .nav__toggle {
-                display: flex;
-            }
-
-            .hero__content {
-                grid-template-columns: 1fr;
-                gap: 48px;
-                text-align: center;
-            }
-
-            .hero__title {
-                font-size: 56px;
-            }
-
-            .hero__stats {
-                justify-content: center;
-                gap: 40px;
-            }
-
-            .section__title {
-                font-size: 42px;
-            }
-
-            .services__grid,
-            .fleet__grid,
-            .features__grid,
-            .testimonials__grid,
-            .contact__grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .fleet-showcase__content {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .form-actions {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .footer__content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-
-            .footer__links {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
+        .modal__content::-webkit-scrollbar-thumb {
+            background: var(--primary-copper);
+            border-radius: 3px;
         }
 
-        /* Loading Animation */
+        /* Loading */
         .loading {
             display: inline-block;
             width: 24px;
             height: 24px;
-            border: 4px solid rgba(255, 255, 255, .3);
+            border: 4px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top-color: var(--pure-white);
             animation: spin 1s ease-in-out infinite;
@@ -1362,7 +1314,7 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Enhanced Scroll Animations */
+        /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(40px);
@@ -1401,24 +1353,71 @@
                 transform: translateX(0);
             }
         }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav__brand { gap: 16px; }
+            .brand-info h1 { font-size: 28px; }
+            .brand-info .tagline { font-size: 12px; }
+            .nav__list { gap: 32px; margin-right: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .nav { padding: 16px 20px; }
+            .nav__brand { gap: 12px; }
+            .brand-info h1 { font-size: 24px; }
+            .brand-info .tagline { font-size: 11px; }
+            .nav__menu {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(30px);
+                transition: left 0.4s ease;
+                flex-direction: column;
+                justify-content: start;
+                padding: 48px 0;
+            }
+            .nav__menu.active { left: 0; }
+            .nav__list {
+                flex-direction: column;
+                gap: 32px;
+                text-align: center;
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+            .nav__actions { flex-direction: column; gap: 16px; }
+            .nav__toggle { display: flex; }
+            .hero__content { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+            .hero__title { font-size: 56px; }
+            .hero__stats { justify-content: center; gap: 40px; }
+            .section__title { font-size: 42px; }
+            .services__grid,
+            .fleet__grid,
+            .features__grid,
+            .testimonials__grid,
+            .contact__grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .fleet-showcase__content { grid-template-columns: 1fr; gap: 48px; }
+            .form-row { grid-template-columns: 1fr; gap: 20px; }
+            .form-actions { flex-direction: column; gap: 20px; }
+            .footer__content { flex-direction: column; text-align: center; gap: 20px; }
+            .footer__links { justify-content: center; flex-wrap: wrap; }
+            .vehicle-category-buttons { grid-template-columns: 1fr; }
+        }
     </style>
-    <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-    
 </head>
 <body>
-    <!-- Header with FIXED alignment -->
+    <!-- Header -->
     <header class="header" id="header">
         <nav class="nav container">
             <div class="nav__brand">
                 <div class="logo">
-                    <!-- Your Actual Logo SVG -->
                     <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1427,35 +1426,12 @@
                                 <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
                             </linearGradient>
                         </defs>
-
-                        <!-- Main geometric flower/star pattern -->
                         <g fill="url(#logoGradient)" stroke="none">
-                            <!-- Outer petals/loops -->
                             <path d="M200,50 Q300,100 350,200 Q300,300 200,350 Q100,300 50,200 Q100,100 200,50 Z" opacity="0.8"/>
-
-                            <!-- Rotated version -->
                             <g transform="rotate(45 200 200)">
                                 <path d="M200,70 Q280,120 330,200 Q280,280 200,330 Q120,280 70,200 Q120,120 200,70 Z" opacity="0.9"/>
                             </g>
-
-                            <!-- Inner connecting elements -->
-                            <g transform="rotate(22.5 200 200)">
-                                <path d="M200,90 Q260,140 310,200 Q260,260 200,310 Q140,260 90,200 Q140,140 200,90 Z" opacity="0.7"/>
-                            </g>
-
-                            <!-- Central hub -->
                             <circle cx="200" cy="200" r="25" fill="url(#logoGradient)" opacity="1"/>
-
-                            <!-- Additional geometric elements -->
-                            <g transform="rotate(90 200 200)">
-                                <ellipse cx="200" cy="120" rx="15" ry="40" fill="url(#logoGradient)" opacity="0.6"/>
-                                <ellipse cx="200" cy="280" rx="15" ry="40" fill="url(#logoGradient)" opacity="0.6"/>
-                            </g>
-
-                            <g transform="rotate(0 200 200)">
-                                <ellipse cx="120" cy="200" rx="40" ry="15" fill="url(#logoGradient)" opacity="0.6"/>
-                                <ellipse cx="280" cy="200" rx="40" ry="15" fill="url(#logoGradient)" opacity="0.6"/>
-                            </g>
                         </g>
                     </svg>
                 </div>
@@ -1464,7 +1440,6 @@
                     <div class="tagline">Cruise in Signature Style</div>
                 </div>
             </div>
-
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li><a href="#home" class="nav__link">Home</a></li>
@@ -1473,19 +1448,15 @@
                     <li><a href="#testimonials" class="nav__link">Reviews</a></li>
                     <li><a href="#contact" class="nav__link">Contact</a></li>
                 </ul>
-
                 <div class="nav__actions">
                     <div class="trust-badge">
-                        <i class="fas fa-shield-alt"></i>
-                        Verified & Secured
+                        <i class="fas fa-shield-alt"></i> Verified & Secured
                     </div>
                     <button class="btn btn--primary" onclick="openBookingModal()">
-                        <i class="fas fa-calendar-check"></i>
-                        Book Ride
+                        <i class="fas fa-calendar-check"></i> Book Ride
                     </button>
                 </div>
             </div>
-
             <button class="nav__toggle" id="nav-toggle">
                 <span></span>
                 <span></span>
@@ -1494,35 +1465,28 @@
         </nav>
     </header>
 
-    <!-- Hero Section with Premium BMW -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero__content">
                 <div class="hero__text">
                     <div class="hero__label fade-in">
-                        <i class="fas fa-medal"></i>
-                        Since 2018 • Ex-Defense Founded
+                        <i class="fas fa-medal"></i> Since 2018 • Ex-Defense Founded
                     </div>
                     <h1 class="hero__title slide-left">
-                        Premium <span class="highlight">Corporate</span><br>
-                        Mobility Solutions
+                        Premium <span class="highlight">Corporate</span><br> Mobility Solutions
                     </h1>
                     <p class="hero__description fade-in">
-                        Experience unmatched luxury and reliability with our premium fleet, 
-                        professional chauffeurs, and cutting-edge technology across India's major cities.
+                        Experience unmatched luxury and reliability with our premium fleet, professional chauffeurs, and cutting-edge technology across India's major cities.
                     </p>
-
                     <div class="hero__actions fade-in">
                         <button class="btn btn--primary" onclick="openBookingModal()">
-                            <i class="fas fa-car"></i>
-                            Book Your Ride
+                            <i class="fas fa-car"></i> Book Your Ride
                         </button>
                         <a href="#fleet" class="btn btn--secondary">
-                            <i class="fas fa-eye"></i>
-                            Explore Fleet
+                            <i class="fas fa-eye"></i> Explore Fleet
                         </a>
                     </div>
-
                     <div class="hero__stats slide-left">
                         <div class="stat">
                             <div class="stat__number">1500+</div>
@@ -1538,7 +1502,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="hero__visual slide-right">
                     <div class="hero__car-display">
                         <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="BMW 5 Series Luxury Sedan" class="hero__car-image">
@@ -1559,11 +1522,9 @@
                 <div class="section__label fade-in">Our Premium Services</div>
                 <h2 class="section__title fade-in">Complete Mobility Solutions</h2>
                 <p class="section__description fade-in">
-                    From executive airport transfers to large-scale corporate events, we deliver 
-                    tailored transportation experiences that exceed expectations.
+                    From executive airport transfers to large-scale corporate events, we deliver tailored transportation experiences that exceed expectations.
                 </p>
             </div>
-
             <div class="services__grid">
                 <div class="service-card fade-in">
                     <div class="service-card__icon">
@@ -1571,79 +1532,62 @@
                     </div>
                     <h3 class="service-card__title">Airport Transfer</h3>
                     <p class="service-card__description">
-                        Punctual luxury airport services with flight tracking, meet & greet, 
-                        and seamless luggage handling for executives.
+                        Punctual luxury airport services with flight tracking, meet & greet, and seamless luggage handling for executives.
                     </p>
-                    <button class="btn btn--secondary" onclick="openBookingModal()">
-                        Book Transfer
-                    </button>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">Book Transfer</button>
                 </div>
-
                 <div class="service-card fade-in">
                     <div class="service-card__icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <h3 class="service-card__title">Corporate Transportation</h3>
                     <p class="service-card__description">
-                        Professional executive transport for meetings, conferences, and business 
-                        events with dedicated account management.
+                        Professional executive transport for meetings, conferences, and business events with dedicated account management.
                     </p>
-                    <button class="btn btn--secondary" onclick="openBookingModal()">
-                        Book Corporate
-                    </button>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">Book Corporate</button>
                 </div>
-
                 <div class="service-card fade-in">
                     <div class="service-card__icon">
                         <i class="fas fa-glass-cheers"></i>
                     </div>
-                    <h3 class="service-card__title">Event Services</h3>
+                    <h3 class="service-card__title">Employee Transportation</h3>
                     <p class="service-card__description">
-                        Luxury group transportation for weddings, galas, and corporate events 
-                        with customizable packages and premium amenities.
+                        Premium group transportation for corporate events, functions, and employee movements with customizable packages.
                     </p>
-                    <button class="btn btn--secondary" onclick="openBookingModal()">
-                        Book Event
-                    </button>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">Book Event</button>
                 </div>
-
                 <div class="service-card fade-in">
                     <div class="service-card__icon">
                         <i class="fas fa-route"></i>
                     </div>
                     <h3 class="service-card__title">Intercity Travel</h3>
                     <p class="service-card__description">
-                        Comfortable long-distance luxury travel with experienced chauffeurs 
-                        and vehicles equipped for extended journeys.
+                        Comfortable long-distance luxury travel with experienced chauffeurs and vehicles equipped for extended journeys.
                     </p>
-                    <button class="btn btn--secondary" onclick="openBookingModal()">
-                        Book Intercity
-                    </button>
+                    <button class="btn btn--secondary" onclick="openBookingModal()">Book Intercity</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Premium Fleet Section with CORRECTED Images -->
+    <!-- Premium Fleet Section -->
     <section class="fleet" id="fleet">
         <div class="container">
             <div class="section__header">
                 <div class="section__label fade-in">Our Luxury Fleet</div>
                 <h2 class="section__title fade-in">Choose Your Perfect Ride</h2>
                 <p class="section__description fade-in">
-                    Our meticulously maintained fleet features the finest vehicles equipped with 
-                    premium amenities to ensure unparalleled comfort and style.
+                    Our meticulously maintained fleet features the finest vehicles equipped with premium amenities to ensure unparalleled comfort and style.
                 </p>
             </div>
-
             <div class="fleet__grid">
                 <div class="fleet-card fade-in">
                     <div class="fleet-card__image">
-                        <img src="https://hips.hearstapps.com/hmg-prod/images/2022-mercedes-benz-s500-4matic-123-1642184026.jpg?crop=0.458xw:0.387xh;0.316xw,0.418xh&resize=700:*" alt="BMW 5 Series Executive Sedan">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/2022-mercedes-benz-s500-4matic-123-1642184026.jpg?crop=0.458xw:0.387xh;0.316xw,0.418xh&resize=700:*" alt="Mercedes S-Class">
                         <div class="fleet-card__badge">Executive Sedans</div>
                     </div>
                     <div class="fleet-card__content">
-                        <h3 class="fleet-card__title">BMW 5 Series, Mercedes E-Class</h3>
+                        <h3 class="fleet-card__title">Mercedes S-Class, BMW 5 Series</h3>
                         <ul class="fleet-card__features">
                             <li>Premium leather interior</li>
                             <li>Advanced climate control</li>
@@ -1653,19 +1597,17 @@
                             <li>Privacy partition available</li>
                         </ul>
                         <button class="btn btn--primary" onclick="openBookingModal()">
-                            <i class="fas fa-calendar-check"></i>
-                            Book Sedan
+                            <i class="fas fa-calendar-check"></i> Book Sedan
                         </button>
                     </div>
                 </div>
-
                 <div class="fleet-card fade-in">
                     <div class="fleet-card__image">
-                        <img src="https://imgd.aeplcdn.com/1920x1080/n/cw/ec/44709/fortuner-facelift-exterior-rear-view.jpeg?q=80&q=80">
+                        <img src="https://imgd.aeplcdn.com/1920x1080/n/cw/ec/44709/fortuner-facelift-exterior-rear-view.jpeg?q=80&q=80" alt="BMW 7 Series">
                         <div class="fleet-card__badge">Luxury SUVs</div>
                     </div>
                     <div class="fleet-card__content">
-                        <h3 class="fleet-card__title">Mercedes GLE, BMW X5, Fortuner</h3>
+                        <h3 class="fleet-card__title">BMW 7-Series, Mercedes GLE, Fortuner</h3>
                         <ul class="fleet-card__features">
                             <li>Spacious luxury cabin</li>
                             <li>Premium sound system</li>
@@ -1675,19 +1617,17 @@
                             <li>Ambient lighting</li>
                         </ul>
                         <button class="btn btn--primary" onclick="openBookingModal()">
-                            <i class="fas fa-calendar-check"></i>
-                            Book SUV
+                            <i class="fas fa-calendar-check"></i> Book SUV
                         </button>
                     </div>
                 </div>
-
                 <div class="fleet-card fade-in">
                     <div class="fleet-card__image">
-                        <img src="https://files.toyota.com.bh/s3fs-public/2019-10/g_h_5_3.jpg?utm_source=Website&utm_medium=Website&utm_campaign=Website">
+                        <img src="https://files.toyota.com.bh/s3fs-public/2019-10/g_h_5_3.jpg?utm_source=Website&utm_medium=Website&utm_campaign=Website" alt="Mercedes Sprinter">
                         <div class="fleet-card__badge">Premium Vans</div>
                     </div>
                     <div class="fleet-card__content">
-                        <h3 class="fleet-card__title">Toyota Hycross, Mercedes Sprinter</h3>
+                        <h3 class="fleet-card__title">Mercedes Sprinter, Commuter</h3>
                         <ul class="fleet-card__features">
                             <li>8-12 passenger capacity</li>
                             <li>Conference seating layout</li>
@@ -1697,8 +1637,7 @@
                             <li>Power outlets & USB charging</li>
                         </ul>
                         <button class="btn btn--primary" onclick="openBookingModal()">
-                            <i class="fas fa-calendar-check"></i>
-                            Book Van
+                            <i class="fas fa-calendar-check"></i> Book Van
                         </button>
                     </div>
                 </div>
@@ -1706,7 +1645,7 @@
         </div>
     </section>
 
-    <!-- Premium Fortuner Showcase with CORRECT Image -->
+    <!-- Premium Showcase Section -->
     <section class="fleet-showcase">
         <div class="container">
             <div class="fleet-showcase__content">
@@ -1714,15 +1653,11 @@
                     <img src="https://www.carmag.co.za/wp-content/uploads/2023/03/TF-4-1024x614.webp" alt="Toyota Fortuner Premium SUV">
                     <div class="showcase-badge">Premium SUV</div>
                 </div>
-
                 <div class="showcase-info fade-in">
                     <h3>Toyota Fortuner Premium</h3>
                     <p>
-                        Experience the perfect blend of luxury and capability with our Toyota Fortuner fleet. 
-                        Designed for executives who demand both comfort and performance, these vehicles offer 
-                        premium interiors, advanced safety features, and commanding road presence.
+                        Experience the perfect blend of luxury and capability with our Toyota Fortuner fleet. Designed for executives who demand both comfort and performance, these vehicles offer premium interiors, advanced safety features, and commanding road presence.
                     </p>
-
                     <ul class="showcase-features">
                         <li>7-seater luxury configuration</li>
                         <li>Advanced safety systems</li>
@@ -1731,10 +1666,8 @@
                         <li>All-wheel drive capability</li>
                         <li>Corporate executive comfort</li>
                     </ul>
-
                     <button class="btn btn--primary" onclick="openBookingModal()">
-                        <i class="fas fa-star"></i>
-                        Book Fortuner
+                        <i class="fas fa-star"></i> Book Fortuner
                     </button>
                 </div>
             </div>
@@ -1748,11 +1681,9 @@
                 <div class="section__label fade-in">Why Choose CorpCruise</div>
                 <h2 class="section__title fade-in">Excellence in Every Detail</h2>
                 <p class="section__description fade-in">
-                    Our unwavering commitment to safety, luxury, and professionalism sets us 
-                    apart as the premier choice for corporate transportation.
+                    Our unwavering commitment to safety, luxury, and professionalism sets us apart as the premier choice for corporate transportation.
                 </p>
             </div>
-
             <div class="features__grid">
                 <div class="feature-card fade-in">
                     <div class="feature-card__icon">
@@ -1760,63 +1691,52 @@
                     </div>
                     <h3 class="feature-card__title">Professional Chauffeurs</h3>
                     <p class="feature-card__description">
-                        Rigorously trained, background-verified, and uniformed professionals with 
-                        exceptional driving skills and customer service excellence.
+                        Rigorously trained, background-verified, and uniformed professionals with exceptional driving skills and customer service excellence.
                     </p>
                 </div>
-
                 <div class="feature-card fade-in">
                     <div class="feature-card__icon">
                         <i class="fa-solid fa-shield"></i>
                     </div>
                     <h3 class="feature-card__title">Safety First</h3>
                     <p class="feature-card__description">
-                        Advanced safety protocols, regular vehicle maintenance, GPS tracking, 
-                        and 24/7 monitoring ensure your complete peace of mind.
+                        Advanced safety protocols, regular vehicle maintenance, GPS tracking, panic button feature, and 24/7 monitoring ensure your complete peace of mind.
                     </p>
                 </div>
-
                 <div class="feature-card fade-in">
                     <div class="feature-card__icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3 class="feature-card__title">Smart Technology</h3>
                     <p class="feature-card__description">
-                        Real-time booking, live tracking, automated notifications, and digital 
-                        receipts for a seamless, tech-enabled experience.
+                        Real-time booking, live tracking, automated notifications, and digital receipts for a seamless, tech-enabled experience.
                     </p>
                 </div>
-
                 <div class="feature-card fade-in">
                     <div class="feature-card__icon">
                         <i class="fas fa-file-invoice-dollar"></i>
                     </div>
                     <h3 class="feature-card__title">Transparent Billing</h3>
                     <p class="feature-card__description">
-                        Clear pricing structure, detailed invoices, corporate billing options, 
-                        and our no-hidden-charges guarantee.
+                        Clear pricing structure, detailed invoices, corporate billing options, and our no-hidden-charges guarantee.
                     </p>
                 </div>
-
                 <div class="feature-card fade-in">
                     <div class="feature-card__icon">
                         <i class="fas fa-certificate"></i>
                     </div>
                     <h3 class="feature-card__title">ISO Certified</h3>
                     <p class="feature-card__description">
-                        Certified for quality management and security standards ensuring 
-                        consistent service excellence and data protection.
+                        Certified for quality management and security standards ensuring consistent service excellence and data protection.
                     </p>
                 </div>
-
                 <div class="feature-card fade-in">
                     <div class="feature-card__icon">
                         <i class="fas fa-headset"></i>
                     </div>
                     <h3 class="feature-card__title">24/7 Support</h3>
                     <p class="feature-card__description">
-                        Round-the-clock customer support, emergency assistance, and dedicated 
-                        account managers for all corporate clients.
+                        Round-the-clock customer support, emergency assistance, and dedicated account managers for all corporate clients.
                     </p>
                 </div>
             </div>
@@ -1830,11 +1750,9 @@
                 <div class="section__label fade-in">Client Testimonials</div>
                 <h2 class="section__title fade-in">Trusted by Industry Leaders</h2>
                 <p class="section__description fade-in">
-                    Discover why leading corporations and executives choose CorpCruise for their 
-                    luxury transportation needs across India.
+                    Discover why leading corporations and executives choose CorpCruise for their luxury transportation needs across India.
                 </p>
             </div>
-
             <div class="testimonials__grid">
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-card__rating">
@@ -1845,9 +1763,7 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="testimonial-card__content">
-                        "CorpCruise has transformed our corporate transportation experience. Their attention 
-                        to detail, punctuality, and luxury service makes every journey exceptional. The 
-                        professional chauffeurs and premium fleet truly set them apart."
+                        "CorpCruise has transformed our corporate transportation experience. Their attention to detail, punctuality, and luxury service makes every journey exceptional. The professional chauffeurs and premium fleet truly set them apart."
                     </div>
                     <div class="testimonial-card__author">
                         <div class="testimonial-card__avatar">MS</div>
@@ -1857,7 +1773,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-card__rating">
                         <i class="fas fa-star"></i>
@@ -1867,9 +1782,7 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="testimonial-card__content">
-                        "Outstanding service with impeccable timing. The booking process is seamless, 
-                        and the vehicles are always pristine. CorpCruise has become our go-to choice 
-                        for all executive transportation needs."
+                        "Outstanding service with impeccable timing. The booking process is seamless, and the vehicles are always pristine. CorpCruise has become our go-to choice for all executive transportation needs."
                     </div>
                     <div class="testimonial-card__author">
                         <div class="testimonial-card__avatar">RK</div>
@@ -1879,7 +1792,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-card__rating">
                         <i class="fas fa-star"></i>
@@ -1889,9 +1801,7 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="testimonial-card__content">
-                        "The luxury and professionalism of CorpCruise is unmatched. From the moment 
-                        you book until you reach your destination, every aspect is handled with 
-                        precision and care. Truly a premium experience."
+                        "The luxury and professionalism of CorpCruise is unmatched. From the moment you book until you reach your destination, every aspect is handled with precision and care. Truly a premium experience."
                     </div>
                     <div class="testimonial-card__author">
                         <div class="testimonial-card__avatar">PS</div>
@@ -1912,11 +1822,9 @@
                 <div class="section__label fade-in">Get In Touch</div>
                 <h2 class="section__title fade-in">Contact Our Expert Team</h2>
                 <p class="section__description fade-in">
-                    Ready to experience luxury transportation? Contact us for bookings, 
-                    corporate packages, or any inquiries. We're here to serve you 24/7.
+                    Ready to experience luxury transportation? Contact us for bookings, corporate packages, or any inquiries. We're here to serve you 24/7.
                 </p>
             </div>
-
             <div class="contact__grid">
                 <div class="contact-card fade-in">
                     <div class="contact-card__icon">
@@ -1924,12 +1832,11 @@
                     </div>
                     <h3 class="contact-card__title">Call Us</h3>
                     <div class="contact-card__info">
-                        <p><a href="tel:+919136033136">+91-9136033136</a></p>
                         <p><a href="tel:+919920592531">+91-9920592531</a></p>
+                        <p><a href="tel:+919136033135">+91-9136033135</a></p>
                         <p>Available 24/7 for bookings</p>
                     </div>
                 </div>
-
                 <div class="contact-card fade-in">
                     <div class="contact-card__icon">
                         <i class="fas fa-envelope"></i>
@@ -1941,7 +1848,6 @@
                         <p>Response within 2 hours</p>
                     </div>
                 </div>
-
                 <div class="contact-card fade-in">
                     <div class="contact-card__icon">
                         <i class="fas fa-map-marker-alt"></i>
@@ -1953,7 +1859,6 @@
                         <p>Mumbai, Maharashtra 400059</p>
                     </div>
                 </div>
-
                 <div class="contact-card fade-in">
                     <div class="contact-card__icon">
                         <i class="fas fa-globe"></i>
@@ -2000,7 +1905,7 @@
         </div>
     </footer>
 
-    <!-- Enhanced Modern Booking Modal -->
+    <!-- Enhanced Modern Booking Modal with Vehicle Selection -->
     <div class="modal" id="booking-modal">
         <div class="modal__content">
             <div class="modal__header">
@@ -2011,7 +1916,7 @@
                 <p class="modal__subtitle">Experience premium corporate transportation with CorpCruise</p>
             </div>
 
-            <!-- Modern Progress Bar -->
+            <!-- Progress Bar -->
             <div class="progress-bar">
                 <div class="progress-bar__fill" style="width: 25%;"></div>
             </div>
@@ -2020,16 +1925,13 @@
                 <!-- Step 1: Company & Service Details -->
                 <div class="form-step active" id="step-1">
                     <h3 class="step-title">Company & Service Details</h3>
-
                     <div class="form-group">
-                        <label for="company-name">Company Name</label>
-                        <input type="text" class="form-control" id="company-name" name="company_name"
-                               placeholder="Enter company name" required>
+                        <label for="company-name">Company Name <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="company-name" name="company_name" placeholder="Enter company name" required>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="city">Select City</label>
+                            <label for="city">Select City <span class="required">*</span></label>
                             <select class="form-control" id="city" name="city" required>
                                 <option value="">Choose your city</option>
                                 <option value="mumbai">Mumbai</option>
@@ -2041,117 +1943,44 @@
                                 <option value="hyderabad">Hyderabad</option>
                                 <option value="ahmedabad">Ahmedabad</option>
                                 <option value="jaipur">Jaipur</option>
-                                <option value="lucknow">Lucknow</option>
-                                <option value="kanpur">Kanpur</option>
-                                <option value="nagpur">Nagpur</option>
-                                <option value="indore">Indore</option>
-                                <option value="thane">Thane</option>
-                                <option value="bhopal">Bhopal</option>
-                                <option value="visakhapatnam">Visakhapatnam</option>
-                                <option value="pimpri-chinchwad">Pimpri-Chinchwad</option>
-                                <option value="patna">Patna</option>
-                                <option value="vadodara">Vadodara</option>
-                                <option value="ghaziabad">Ghaziabad</option>
-                                <option value="ludhiana">Ludhiana</option>
-                                <option value="agra">Agra</option>
-                                <option value="nashik">Nashik</option>
-                                <option value="faridabad">Faridabad</option>
-                                <option value="meerut">Meerut</option>
-                                <option value="rajkot">Rajkot</option>
-                                <option value="kalyan-dombivali">Kalyan-Dombivali</option>
-                                <option value="vasai-virar">Vasai-Virar</option>
-                                <option value="varanasi">Varanasi</option>
-                                <option value="srinagar">Srinagar</option>
-                                <option value="aurangabad">Aurangabad</option>
-                                <option value="dhanbad">Dhanbad</option>
-                                <option value="amritsar">Amritsar</option>
-                                <option value="navi-mumbai">Navi Mumbai</option>
-                                <option value="allahabad">Allahabad</option>
-                                <option value="ranchi">Ranchi</option>
-                                <option value="howrah">Howrah</option>
-                                <option value="coimbatore">Coimbatore</option>
-                                <option value="jabalpur">Jabalpur</option>
-                                <option value="gwalior">Gwalior</option>
-                                <option value="vijayawada">Vijayawada</option>
-                                <option value="jodhpur">Jodhpur</option>
-                                <option value="madurai">Madurai</option>
-                                <option value="raipur">Raipur</option>
-                                <option value="kota">Kota</option>
-                                <option value="guwahati">Guwahati</option>
-                                <option value="chandigarh">Chandigarh</option>
-                                <option value="solapur">Solapur</option>
-                                <option value="hubballi-dharwad">Hubballi-Dharwad</option>
-                                <option value="tiruchirappalli">Tiruchirappalli</option>
-                                <option value="bareilly">Bareilly</option>
-                                <option value="mysore">Mysore</option>
-                                <option value="tiruppur">Tiruppur</option>
-                                <option value="gurgaon">Gurgaon</option>
-                                <option value="aligarh">Aligarh</option>
-                                <option value="jalandhar">Jalandhar</option>
-                                <option value="bhubaneswar">Bhubaneswar</option>
-                                <option value="salem">Salem</option>
-                                <option value="warangal">Warangal</option>
-                                <option value="guntur">Guntur</option>
-                                <option value="bhiwandi">Bhiwandi</option>
-                                <option value="saharanpur">Saharanpur</option>
-                                <option value="gorakhpur">Gorakhpur</option>
-                                <option value="bikaner">Bikaner</option>
-                                <option value="amravati">Amravati</option>
-                                <option value="noida">Noida</option>
-                                <option value="jamshedpur">Jamshedpur</option>
-                                <option value="bhilai-nagar">Bhilai Nagar</option>
-                                <option value="cuttack">Cuttack</option>
-                                <option value="firozabad">Firozabad</option>
-                                <option value="kochi">Kochi</option>
-                                <option value="nellore">Nellore</option>
-                                <option value="bhavnagar">Bhavnagar</option>
-                                <option value="dehradun">Dehradun</option>
-                                <option value="durgapur">Durgapur</option>
-                                <option value="asansol">Asansol</option>
-                                <option value="rourkela">Rourkela</option>
-                                <option value="nanded">Nanded</option>
-                                <option value="kolhapur">Kolhapur</option>
-                                <option value="ajmer">Ajmer</option>
-                                <option value="akola">Akola</option>
-                                <option value="gulbarga">Gulbarga</option>
-                                <option value="jamnagar">Jamnagar</option>
-                                <option value="ujjain">Ujjain</option>
-                                <option value="loni">Loni</option>
-                                <option value="siliguri">Siliguri</option>
-                                <option value="jhansi">Jhansi</option>
-                                <option value="ulhasnagar">Ulhasnagar</option>
-                                <option value="nellore">Nellore</option>
-                                <option value="jammu">Jammu</option>
-                                <option value="sangli-miraj-kupwad">Sangli-Miraj-Kupwad</option>
-                                <option value="mangalore">Mangalore</option>
-                                <option value="erode">Erode</option>
-                                <option value="belgaum">Belgaum</option>
-                                <option value="ambattur">Ambattur</option>
-                                <option value="tirunelveli">Tirunelveli</option>
-                                <option value="malegaon">Malegaon</option>
-                                <option value="gaya">Gaya</option>
-                                <option value="jalgaon">Jalgaon</option>
-                                <option value="udaipur">Udaipur</option>
-                                <option value="maheshtala">Maheshtala</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="vehicle-type">Vehicle Type</label>
-                            <select class="form-control" id="vehicle-type" name="vehicle_type" required>
-                                <option value="">Choose vehicle type</option>
-                                <option value="sedan">Executive Sedan (BMW 5 Series, Mercedes E-Class)</option>
-                                <option value="suv">Luxury SUV (Mercedes GLE, BMW X5, Fortuner)</option>
-                                <option value="van">Premium Van (Toyota Hycross, Mercedes Sprinter)</option>
+                            <label for="duty-type">Duty Type <span class="required">*</span></label>
+                            <select class="form-control" id="duty-type" name="duty_type" required>
+                                <option value="">Select duty type</option>
+                                <option value="transfer">Transfer</option>
+                                <option value="local">Local</option>
+                                <option value="outstation">Outstation</option>
                             </select>
                         </div>
                     </div>
 
+                    <!-- NEW: Interactive Vehicle Category Selection -->
                     <div class="form-group">
-                        <label for="duty-type">Duty Type</label>
-                        <select class="form-control" id="duty-type" name="duty_type" required>
-                            <option value="">Select duty type</option>
-                            <option value="local">Local</option>
-                            <option value="outstation">Outstation</option>
+                        <label>Vehicle Category <span class="required">*</span></label>
+                        <div class="vehicle-category-buttons">
+                            <button type="button" class="vehicle-category-btn" data-category="sedan" onclick="selectVehicleCategory('sedan')">
+                                <i class="fas fa-car"></i>
+                                <span>Executive Sedan</span>
+                            </button>
+                            <button type="button" class="vehicle-category-btn" data-category="suv" onclick="selectVehicleCategory('suv')">
+                                <i class="fas fa-car"></i>
+                                <span>Luxury SUV</span>
+                            </button>
+                            <button type="button" class="vehicle-category-btn" data-category="van" onclick="selectVehicleCategory('van')">
+                                <i class="fas fa-shuttle-van"></i>
+                                <span>Premium Van</span>
+                            </button>
+                        </div>
+                        <input type="hidden" id="vehicle-category" name="vehicle_category" required>
+                    </div>
+
+                    <!-- NEW: Dynamic Vehicle Model Dropdown -->
+                    <div class="form-group" id="vehicle-model-group" style="display: none;">
+                        <label for="vehicle-model">Select Vehicle <span class="required">*</span></label>
+                        <select class="form-control" id="vehicle-model" name="vehicle_model" required>
+                            <option value="">Choose a vehicle</option>
                         </select>
                     </div>
                 </div>
@@ -2159,36 +1988,28 @@
                 <!-- Step 2: Booker Details -->
                 <div class="form-step" id="step-2">
                     <h3 class="step-title">Booker Information</h3>
-
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="booker-name">Booker Name</label>
-                            <input type="text" class="form-control" id="booker-name" name="booker_name"
-                                   placeholder="Person making the booking" required>
+                            <label for="booker-name">Booker Name <span class="required">*</span></label>
+                            <input type="text" class="form-control" id="booker-name" name="booker_name" placeholder="Person making the booking" required>
                         </div>
                         <div class="form-group">
-                            <label for="booker-phone">Contact Number</label>
-                            <input type="tel" class="form-control" id="booker-phone" name="booker_phone"
-                                   placeholder="+91 XXXXX XXXXX" required>
+                            <label for="booker-phone">Contact Number <span class="required">*</span></label>
+                            <input type="tel" class="form-control" id="booker-phone" name="booker_phone" placeholder="+91 XXXXX XXXXX" required>
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label for="booker-email">Email ID</label>
-                        <input type="email" class="form-control" id="booker-email" name="booker_email"
-                               placeholder="booker@company.com" required>
+                        <label for="booker-email">Email ID <span class="required">*</span></label>
+                        <input type="email" class="form-control" id="booker-email" name="booker_email" placeholder="booker@company.com" required>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="guest-name">Guest Name</label>
-                            <input type="text" class="form-control" id="guest-name" name="guest_name"
-                                   placeholder="Passenger name (if different)">
+                            <label for="guest-name">Passenger Name</label>
+                            <input type="text" class="form-control" id="guest-name" name="guest_name" placeholder="Passenger name (if different)">
                         </div>
                         <div class="form-group">
-                            <label for="guest-phone">Guest Contact</label>
-                            <input type="tel" class="form-control" id="guest-phone" name="guest_phone"
-                                   placeholder="+91 XXXXX XXXXX">
+                            <label for="guest-phone">Passenger Contact</label>
+                            <input type="tel" class="form-control" id="guest-phone" name="guest_phone" placeholder="+91 XXXXX XXXXX">
                         </div>
                     </div>
                 </div>
@@ -2196,29 +2017,38 @@
                 <!-- Step 3: Journey Details -->
                 <div class="form-step" id="step-3">
                     <h3 class="step-title">Journey Details</h3>
-
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="pickup-date">Date</label>
+                            <label for="pickup-date">Date <span class="required">*</span></label>
                             <input type="date" class="form-control" id="pickup-date" name="pickup_date" required>
                         </div>
                         <div class="form-group">
-                            <label for="pickup-time">Required Time</label>
+                            <label for="pickup-time">Reporting Time <span class="required">*</span></label>
                             <input type="time" class="form-control" id="pickup-time" name="pickup_time" required>
+                        </div>
+                    </div>
+
+                    <!-- Transfer Trip Fields -->
+                    <div class="transfer-group" style="display: none;">
+                        <div class="form-group">
+                            <label for="pickup-address">Pickup Address <span class="required">*</span></label>
+                            <textarea class="form-control" id="pickup-address" name="pickup_address" rows="2" placeholder="Complete pickup address with landmark"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="drop-address">Drop Address <span class="required">*</span></label>
+                            <textarea class="form-control" id="drop-address" name="drop_address" rows="2" placeholder="Complete drop address with landmark"></textarea>
                         </div>
                     </div>
 
                     <!-- Local Trip Fields -->
                     <div class="local-group" style="display: none;">
                         <div class="form-group">
-                            <label for="pickup-address">Pickup Address</label>
-                            <textarea class="form-control" id="pickup-address" name="pickup_address" rows="3"
-                                      placeholder="Complete pickup address with landmark"></textarea>
+                            <label for="local-pickup">Pickup Address <span class="required">*</span></label>
+                            <textarea class="form-control" id="local-pickup" name="local_pickup" rows="2" placeholder="Complete pickup address with landmark"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="drop-address">Drop Address</label>
-                            <textarea class="form-control" id="drop-address" name="drop_address" rows="3"
-                                      placeholder="Complete drop address with landmark"></textarea>
+                            <label for="local-drop">Drop Address <span class="required">*</span></label>
+                            <textarea class="form-control" id="local-drop" name="local_drop" rows="2" placeholder="Complete drop address with landmark"></textarea>
                         </div>
                     </div>
 
@@ -2226,25 +2056,21 @@
                     <div class="outstation-group" style="display: none;">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="pickup-city">Pickup City</label>
-                                <input type="text" class="form-control" id="pickup-city" name="pickup_city"
-                                       placeholder="Starting city">
+                                <label for="pickup-city">Pickup City <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="pickup-city" name="pickup_city" placeholder="Starting city">
                             </div>
                             <div class="form-group">
-                                <label for="drop-city">Destination City</label>
-                                <input type="text" class="form-control" id="drop-city" name="drop_city"
-                                       placeholder="Destination city">
+                                <label for="drop-city">Destination City <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="drop-city" name="drop_city" placeholder="Destination city">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="outstation-pickup">Pickup Address</label>
-                            <textarea class="form-control" id="outstation-pickup" name="outstation_pickup" rows="2"
-                                      placeholder="Exact pickup location in the city"></textarea>
+                            <label for="outstation-pickup">Pickup Address <span class="required">*</span></label>
+                            <textarea class="form-control" id="outstation-pickup" name="outstation_pickup" rows="2" placeholder="Exact pickup location in the city"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="outstation-drop">Drop Address</label>
-                            <textarea class="form-control" id="outstation-drop" name="outstation_drop" rows="2"
-                                      placeholder="Exact drop location in destination city"></textarea>
+                            <label for="outstation-drop">Drop Address <span class="required">*</span></label>
+                            <textarea class="form-control" id="outstation-drop" name="outstation_drop" rows="2" placeholder="Exact drop location in destination city"></textarea>
                         </div>
                     </div>
                 </div>
@@ -2252,13 +2078,10 @@
                 <!-- Step 4: Additional Details -->
                 <div class="form-step" id="step-4">
                     <h3 class="step-title">Additional Details</h3>
-
                     <div class="form-group">
                         <label for="flight-details">Flight Details (Optional)</label>
-                        <input type="text" class="form-control" id="flight-details" name="flight_details"
-                               placeholder="Flight number, arrival/departure time">
+                        <input type="text" class="form-control" id="flight-details" name="flight_details" placeholder="Flight number, arrival/departure time">
                     </div>
-
                     <div class="form-group">
                         <label for="amenities">Additional Amenities</label>
                         <select class="form-control" id="amenities" name="amenities" multiple>
@@ -2270,28 +2093,23 @@
                             <option value="tissues">Tissues</option>
                             <option value="sanitizer">Hand Sanitizer</option>
                         </select>
-                        <small class="form-text">Hold Ctrl/Cmd to select multiple items</small>
+                        <small class="small">Hold Ctrl/Cmd to select multiple items</small>
                     </div>
-
                     <div class="form-group">
                         <label for="special-requests">Special Requests (Optional)</label>
-                        <textarea class="form-control" id="special-requests" name="special_requests" rows="3"
-                                  placeholder="Any special requirements, preferences, or instructions"></textarea>
+                        <textarea class="form-control" id="special-requests" name="special_requests" rows="3" placeholder="Any special requirements, preferences, or instructions"></textarea>
                     </div>
                 </div>
 
                 <div class="form-actions">
-                    <button type="button" class="btn btn--secondary" id="prev-btn"
-                            onclick="previousStep()" style="display: none;">
+                    <button type="button" class="btn btn--secondary" id="prev-btn" onclick="previousStep()" style="display: none;">
                         <i class="fas fa-arrow-left"></i> Previous
                     </button>
                     <div></div>
-                    <button type="button" class="btn btn--primary" id="next-btn"
-                            onclick="nextStep()">
+                    <button type="button" class="btn btn--primary" id="next-btn" onclick="nextStep()">
                         Next Step <i class="fas fa-arrow-right"></i>
                     </button>
-                    <button type="submit" class="btn btn--primary" id="submit-btn"
-                            style="display: none;">
+                    <button type="submit" class="btn btn--primary" id="submit-btn" style="display: none;">
                         <i class="fas fa-check-circle"></i> Confirm Booking
                     </button>
                 </div>
@@ -2299,18 +2117,65 @@
         </div>
     </div>
 
-
     <!-- Add Supabase JavaScript SDK -->
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-
-
+    
     <script>
-
         // Initialize Supabase
         const supabaseUrl = 'https://tkxbqmhklbkngjcaitic.supabase.co'
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRreGJxbWhrbGJrbmdqY2FpdGljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4MDg1MzMsImV4cCI6MjA3NDM4NDUzM30.wG-_2ZiWoOKTa_x4FMLLH5oiJqRxF2YIfxdCFzO0yos'
         const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
 
+        // Vehicle Catalog
+        const vehicleCatalog = {
+            sedan: {
+                name: "Executive Sedan",
+                models: [
+                    { id: "dzire", name: "Maruti D'zire" },
+                    { id: "aura", name: "Maruti Aura" },
+                    { id: "xcent", name: "Hyundai Xcent" },
+                    { id: "amaze", name: "Honda Amaze" },
+                    { id: "city", name: "Honda City" },
+                    { id: "ciaz", name: "Maruti Ciaz" },
+                    { id: "corolla", name: "Toyota Corolla Altis" },
+                    { id: "bmw5", name: "BMW 5 Series" },
+                    { id: "merc-e", name: "Mercedes E-Class" },
+                    { id: "audi-a6", name: "Audi A6" },
+                    { id: "bmw7", name: "BMW 7 Series" },
+                    { id: "merc-s", name: "Mercedes S-Class" }
+                ]
+            },
+            suv: {
+                name: "Luxury SUV",
+                models: [
+                    { id: "ertiga", name: "Maruti Ertiga" },
+                    { id: "rumion", name: "Maruti Rumion" },
+                    { id: "kia-carens", name: "Kia Carens" },
+                    { id: "innova-crysta", name: "Toyota Innova Crysta" },
+                    { id: "innova-hycross", name: "Toyota Innova Hycross" },
+                    { id: "fortuner", name: "Toyota Fortuner" },
+                    { id: "audi-q", name: "Audi Q7/Q5" },
+                    { id: "merc-gls", name: "Mercedes GLS 400" },
+                    { id: "kia-carnival", name: "Kia Carnival" }
+                ]
+            },
+            van: {
+                name: "Premium Van",
+                models: [
+                    { id: "commuter", name: "Commuter (8-seater)" },
+                    { id: "tempo-13", name: "Tempo Traveler 13-seater" },
+                    { id: "tempo-17", name: "Tempo Traveler 17-seater" },
+                    { id: "urbania-13", name: "Urbania 13-seater" },
+                    { id: "urbania-17", name: "Urbania 17-seater" },
+                    { id: "force-20", name: "Force 20-seater" },
+                    { id: "bus-25", name: "Bus 25-seater" },
+                    { id: "bus-30", name: "Bus 30-seater" },
+                    { id: "bus-35", name: "Bus 35-seater" },
+                    { id: "bus-45", name: "Bus 45-seater" },
+                    { id: "bus-54", name: "Bus 54-seater" }
+                ]
+            }
+        };
 
         // Global variables
         let currentStep = 1;
@@ -2327,7 +2192,7 @@
         const submitBtn = document.getElementById('submit-btn');
         const progressBar = document.querySelector('.progress-bar__fill');
 
-        // Initialize the application
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             setMinDate();
             addScrollEffects();
@@ -2337,7 +2202,7 @@
             initializeDutyTypeToggle();
         });
 
-        // Set minimum date to today
+        // Set minimum date
         function setMinDate() {
             const today = new Date().toISOString().split('T')[0];
             const pickupDate = document.getElementById('pickup-date');
@@ -2354,18 +2219,14 @@
             });
         }
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         function addSmoothScrolling() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        // Close mobile menu
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         navMenu.classList.remove('active');
                         navToggle.classList.remove('active');
                     }
@@ -2373,10 +2234,9 @@
             });
         }
 
-        // Initialize animations
+        // Animations
         function initializeAnimations() {
             const animationElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right');
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2384,10 +2244,7 @@
                         entry.target.style.animationDelay = Math.random() * 0.4 + 's';
                     }
                 });
-            }, {
-                threshold: 0.2,
-                rootMargin: '0px 0px -60px 0px'
-            });
+            }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
 
             animationElements.forEach(el => {
                 el.style.animationPlayState = 'paused';
@@ -2395,40 +2252,34 @@
             });
         }
 
-        // Initialize duty type toggle functionality
+        // Duty type toggle
         function initializeDutyTypeToggle() {
             const dutyTypeSelect = document.getElementById('duty-type');
+            const transferGroup = document.querySelector('.transfer-group');
             const localGroup = document.querySelector('.local-group');
             const outstationGroup = document.querySelector('.outstation-group');
 
-            if (dutyTypeSelect && localGroup && outstationGroup) {
+            if (dutyTypeSelect) {
                 dutyTypeSelect.addEventListener('change', function() {
-                    if (this.value === 'local') {
+                    transferGroup.style.display = 'none';
+                    localGroup.style.display = 'none';
+                    outstationGroup.style.display = 'none';
+
+                    if (this.value === 'transfer') {
+                        transferGroup.style.display = 'block';
+                    } else if (this.value === 'local') {
                         localGroup.style.display = 'block';
-                        outstationGroup.style.display = 'none';
                     } else if (this.value === 'outstation') {
-                        localGroup.style.display = 'none';
                         outstationGroup.style.display = 'block';
-                    } else {
-                        localGroup.style.display = 'none';
-                        outstationGroup.style.display = 'none';
                     }
                 });
             }
         }
 
-        // Mobile navigation toggle
+        // Mobile menu toggle
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.nav__link').forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            });
         });
 
         // Modal functions
@@ -2443,21 +2294,69 @@
             resetForm();
         }
 
-        // Close modal when clicking outside or pressing Escape
+        // Close modal when clicking outside
         bookingModal.addEventListener('click', function(e) {
             if (e.target === bookingModal) {
                 closeBookingModal();
             }
         });
 
+        // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && bookingModal.classList.contains('active')) {
                 closeBookingModal();
             }
         });
 
-        // Form step navigation
+        // Select Vehicle Category
+        function selectVehicleCategory(category) {
+            // Update active button
+            document.querySelectorAll('.vehicle-category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+
+            // Store selected category
+            document.getElementById('vehicle-category').value = category;
+
+            // Update dropdown options
+            const vehicleModelSelect = document.getElementById('vehicle-model');
+            const models = vehicleCatalog[category].models;
+            
+            vehicleModelSelect.innerHTML = '<option value="">Choose a vehicle</option>';
+            models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model.id;
+                option.textContent = model.name;
+                vehicleModelSelect.appendChild(option);
+            });
+
+            // Show the vehicle model dropdown
+            document.getElementById('vehicle-model-group').style.display = 'block';
+            vehicleModelSelect.focus();
+        }
+
+        // Validate vehicle selection
+        function validateVehicleSelection() {
+            const category = document.getElementById('vehicle-category').value;
+            const model = document.getElementById('vehicle-model').value;
+            
+            if (!category) {
+                alert('Please select a vehicle category');
+                return false;
+            }
+            if (!model) {
+                alert('Please select a specific vehicle');
+                return false;
+            }
+            return true;
+        }
+
+        // Form navigation
         function nextStep() {
+            if (currentStep === 1 && !validateVehicleSelection()) {
+                return;
+            }
             if (validateCurrentStep()) {
                 if (currentStep < totalSteps) {
                     currentStep++;
@@ -2474,33 +2373,17 @@
         }
 
         function updateStepDisplay() {
-            // Hide all steps
             document.querySelectorAll('.form-step').forEach(step => {
                 step.classList.remove('active');
             });
-
-            // Show current step
             document.getElementById(`step-${currentStep}`).classList.add('active');
 
-            // Update progress bar
             if (progressBar) {
                 const progress = (currentStep / totalSteps) * 100;
                 progressBar.style.width = progress + '%';
             }
 
-            // Update step indicators
-            document.querySelectorAll('.step-dot').forEach((dot, index) => {
-                dot.classList.remove('active', 'completed');
-                if (index < currentStep - 1) {
-                    dot.classList.add('completed');
-                } else if (index === currentStep - 1) {
-                    dot.classList.add('active');
-                }
-            });
-
-            // Update button visibility
             prevBtn.style.display = currentStep > 1 ? 'flex' : 'none';
-
             if (currentStep === totalSteps) {
                 nextBtn.style.display = 'none';
                 submitBtn.style.display = 'flex';
@@ -2517,57 +2400,40 @@
             let isValid = true;
 
             requiredFields.forEach(field => {
-                // Remove existing error states
-                field.style.borderColor = '';
+                field.classList.remove('error');
                 const existingError = field.parentNode.querySelector('.error-message');
                 if (existingError) {
                     existingError.remove();
                 }
 
                 if (!field.value.trim()) {
-                    field.style.borderColor = '#ff5555';
+                    field.classList.add('error');
                     isValid = false;
-
-                    // Add error message
                     const errorMsg = document.createElement('div');
                     errorMsg.className = 'error-message';
-                    errorMsg.style.cssText = 'color: #ff5555; font-size: 14px; margin-top: 8px; font-weight: 600;';
                     errorMsg.textContent = 'This field is required';
                     field.parentNode.appendChild(errorMsg);
                 }
             });
 
-            if (!isValid) {
-                // Scroll to first error
-                const firstError = currentFormStep.querySelector('[required][style*="rgb(255, 85, 85)"]');
-                if (firstError) {
-                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    firstError.focus();
-                }
-            }
-
             return isValid;
         }
 
-        // Add real-time validation
+        // Real-time validation
         function addFormValidation() {
             const formFields = document.querySelectorAll('.form-control');
             formFields.forEach(field => {
                 field.addEventListener('blur', function() {
                     if (this.hasAttribute('required') && !this.value.trim()) {
-                        this.style.borderColor = '#ff5555';
+                        this.classList.add('error');
                     } else {
-                        this.style.borderColor = '';
-                        const existingError = this.parentNode.querySelector('.error-message');
-                        if (existingError) {
-                            existingError.remove();
-                        }
+                        this.classList.remove('error');
                     }
                 });
 
                 field.addEventListener('input', function() {
-                    if (this.style.borderColor === 'rgb(255, 85, 85)' && this.value.trim()) {
-                        this.style.borderColor = '';
+                    if (this.classList.contains('error') && this.value.trim()) {
+                        this.classList.remove('error');
                         const existingError = this.parentNode.querySelector('.error-message');
                         if (existingError) {
                             existingError.remove();
@@ -2577,47 +2443,46 @@
             });
         }
 
-        // Updated form submission with Supabase
+        // Form submission
         bookingForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-
             if (validateCurrentStep()) {
                 submitBtn.innerHTML = '<div class="loading"></div> Processing...';
                 submitBtn.disabled = true;
 
                 try {
-                    // Collect form data
                     const formData = new FormData(this);
                     const bookingData = {};
                     for (let [key, value] of formData.entries()) {
                         bookingData[key] = value;
                     }
 
-                    // Handle amenities array
-                    const amenitiesSelect = document.getElementById('amenities');
-                    const selectedAmenities = Array.from(amenitiesSelect.selectedOptions).map(option => option.value);
-                    bookingData.amenities = selectedAmenities;
-
-                    // Generate booking reference
                     const bookingRef = 'CC-' + Date.now() + '-' + Math.random().toString(36).substr(2, 5).toUpperCase();
                     bookingData.booking_reference = bookingRef;
 
-                    // Insert into Supabase
                     const { data, error } = await supabase
                         .from('bookings')
                         .insert([bookingData])
                         .select();
 
-                    if (error) {
-                        throw error;
+                    if (error) throw error;
+
+                    const bookingDate = new Date(bookingData.pickup_date);
+                    const now = new Date();
+                    const isSameDay = bookingDate.toDateString() === now.toDateString();
+                    const isWithin3Hours = (bookingDate - now) < (3 * 60 * 60 * 1000);
+
+                    let message = `✅ Booking confirmed! Your reference: ${bookingRef}\n\n`;
+                    if (isSameDay && isWithin3Hours) {
+                        message += "Your duty will be confirmed within an hour. We appreciate your patience.";
+                    } else {
+                        message += "We are happy to confirm your booking. Our team will contact you shortly.";
                     }
 
-                    console.log('Booking saved:', data);
-                    alert(`✅ Booking confirmed! Your reference: ${bookingRef}\n\nWe will contact you within 15 minutes.`);
+                    alert(message);
                     closeBookingModal();
-
                 } catch (error) {
-                    console.error('Error saving booking:', error);
+                    console.error('Error:', error);
                     alert('❌ Sorry, there was an error. Please try again or call us directly.');
                 } finally {
                     submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm Booking';
@@ -2626,31 +2491,18 @@
             }
         });
 
-
         // Reset form
         function resetForm() {
             currentStep = 1;
             bookingForm.reset();
+            document.querySelectorAll('.vehicle-category-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('vehicle-model-group').style.display = 'none';
             updateStepDisplay();
-
-            // Reset button states
             submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm Booking';
             submitBtn.disabled = false;
-
-            // Clear error states
             document.querySelectorAll('.error-message').forEach(msg => msg.remove());
-            document.querySelectorAll('.form-control').forEach(field => {
-                field.style.borderColor = '';
-            });
-
-            // Reset visibility states
-            const localGroup = document.querySelector('.local-group');
-            const outstationGroup = document.querySelector('.outstation-group');
-            if (localGroup) localGroup.style.display = 'none';
-            if (outstationGroup) outstationGroup.style.display = 'none';
+            document.querySelectorAll('.form-control').forEach(field => field.classList.remove('error'));
         }
     </script>
-
 </body>
-
 </html>
