@@ -1,0 +1,538 @@
+<!-- ADMIN CODE GENERATOR PANEL -->
+<!-- Save this as: admin-code-generator.html -->
+<!-- Access it at: yoursite.com/admin-code-generator.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CorpCruise - Admin Code Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1A1A1A, #2A2A2A);
+            color: #fff;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #B8860B, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #FFD700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #FFD700;
+            box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.2);
+            outline: none;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #B8860B, #FFD700);
+            color: #000;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            width: 100%;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .btn-copy {
+            background: transparent;
+            color: #FFD700;
+            border: 1px solid #FFD700;
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+
+        .btn-copy:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .codes-list {
+            margin-top: 40px;
+        }
+
+        .code-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(184, 134, 11, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .code-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(184, 134, 11, 0.4);
+        }
+
+        .code-info {
+            flex: 1;
+        }
+
+        .code-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFD700;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 8px;
+        }
+
+        .code-company {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .code-meta {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 6px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-active {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+        }
+
+        .status-disabled {
+            background: rgba(244, 67, 54, 0.2);
+            color: #F44336;
+        }
+
+        .code-actions {
+            display: flex;
+            gap: 8px;
+            margin-left: 16px;
+        }
+
+        .btn-icon {
+            background: transparent;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #FFD700;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-icon:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #FFD700;
+        }
+
+        .message {
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        .message.success {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border: 1px solid rgba(76, 175, 80, 0.4);
+        }
+
+        .message.error {
+            background: rgba(244, 67, 54, 0.2);
+            color: #F44336;
+            border: 1px solid rgba(244, 67, 54, 0.4);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .code-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .code-actions {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CorpCruise Admin Panel</h1>
+            <p>Manage Corporate Access Codes</p>
+        </div>
+
+        <div class="grid">
+            <!-- Generate New Code -->
+            <div class="card">
+                <h2><i class="fas fa-plus-circle"></i> Generate New Code</h2>
+                
+                <div id="generateMessage" class="message"></div>
+
+                <div class="form-group">
+                    <label for="companyName">Company Name *</label>
+                    <input type="text" id="companyName" placeholder="E.g., ABC Transport Pvt Ltd">
+                </div>
+
+                <div class="form-group">
+                    <label for="createdBy">Created By (Your Name)</label>
+                    <input type="text" id="createdBy" placeholder="Your name or email">
+                </div>
+
+                <div class="form-group">
+                    <label for="expiryDays">Days Until Expiry (Leave blank for no expiry)</label>
+                    <input type="number" id="expiryDays" placeholder="E.g., 30" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="maxBookings">Max Bookings (Leave blank for unlimited)</label>
+                    <input type="number" id="maxBookings" placeholder="E.g., 100" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes (Optional)</label>
+                    <textarea id="notes" placeholder="Any notes about this code..." rows="3"></textarea>
+                </div>
+
+                <button class="btn btn-primary" onclick="generateCode()">
+                    <i class="fas fa-key"></i> Generate Code
+                </button>
+            </div>
+
+            <!-- Code Information -->
+            <div class="card">
+                <h2><i class="fas fa-info-circle"></i> About Access Codes</h2>
+                
+                <div style="line-height: 1.8; color: rgba(255, 255, 255, 0.8); font-size: 14px;">
+                    <p style="margin-bottom: 16px;">
+                        <strong style="color: #FFD700;">What are Access Codes?</strong><br>
+                        Unique codes that allow corporate clients to verify their identity before booking rides. This prevents fake bookings from retail customers.
+                    </p>
+
+                    <p style="margin-bottom: 16px;">
+                        <strong style="color: #FFD700;">How it works:</strong>
+                        <ol style="margin-left: 20px; margin-top: 8px;">
+                            <li>1. User clicks "Book Ride"</li>
+                            <li>2. First step asks for access code</li>
+                            <li>3. If code is valid → Booking form unlocks</li>
+                            <li>4. If code is invalid → Error message</li>
+                        </ol>
+                    </p>
+
+                    <p style="margin-bottom: 16px;">
+                        <strong style="color: #FFD700;">Code Format:</strong><br>
+                        CORP-[COMPANY]-[YEAR]-[NUMBER]<br>
+                        Example: CORP-ABC-2024-001
+                    </p>
+
+                    <p>
+                        <strong style="color: #FFD700;">Expiry & Usage:</strong><br>
+                        Set expiry dates and booking limits per code for better control.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Codes List -->
+        <div class="card">
+            <h2><i class="fas fa-list"></i> Active Access Codes</h2>
+            <div id="codesList" class="codes-list">
+                <p style="text-align: center; color: rgba(255, 255, 255, 0.6);">Loading codes...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    
+    <script>
+        // Initialize Supabase
+        const supabaseUrl = 'https://tkxbqmhklbkngjcaitic.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRreGJxbWhrbGJrbmdqY2FpdGljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4MDg1MzMsImV4cCI6MjA3NDM4NDUzM30.wG-_2ZiWoOKTa_x4FMLLH5oiJqRxF2YIfxdCFzO0yos'
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
+
+        // Generate random code
+        function generateRandomCode() {
+            return Math.random().toString(36).substr(2, 8).toUpperCase();
+        }
+
+        // Generate code
+        async function generateCode() {
+            const companyName = document.getElementById('companyName').value.trim();
+            const createdBy = document.getElementById('createdBy').value.trim();
+            const expiryDays = document.getElementById('expiryDays').value;
+            const maxBookings = document.getElementById('maxBookings').value;
+            const notes = document.getElementById('notes').value.trim();
+            const messageDiv = document.getElementById('generateMessage');
+
+            if (!companyName) {
+                showMessage(messageDiv, 'Please enter a company name', 'error');
+                return;
+            }
+
+            try {
+                const code = 'CORP-' + companyName.split(' ')[0].substring(0, 3).toUpperCase() + '-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+                
+                const expiryDate = expiryDays ? new Date(Date.now() + expiryDays * 24 * 60 * 60 * 1000).toISOString().split('T')[0] : null;
+
+                const { data, error } = await supabase
+                    .from('access_codes')
+                    .insert([{
+                        code: code,
+                        company_name: companyName,
+                        created_by: createdBy || 'admin',
+                        expiry_date: expiryDate,
+                        max_bookings: maxBookings ? parseInt(maxBookings) : 999999,
+                        notes: notes,
+                        status: 'active'
+                    }])
+                    .select();
+
+                if (error) throw error;
+
+                showMessage(messageDiv, `✅ Code generated: ${code}`, 'success');
+                
+                // Reset form
+                document.getElementById('companyName').value = '';
+                document.getElementById('createdBy').value = '';
+                document.getElementById('expiryDays').value = '';
+                document.getElementById('maxBookings').value = '';
+                document.getElementById('notes').value = '';
+
+                // Reload codes list
+                loadActiveCodes();
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage(messageDiv, `❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        // Load active codes
+        async function loadActiveCodes() {
+            const codesList = document.getElementById('codesList');
+            
+            try {
+                const { data, error } = await supabase
+                    .from('access_codes')
+                    .select('*')
+                    .eq('status', 'active')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                if (data.length === 0) {
+                    codesList.innerHTML = '<p style="text-align: center; color: rgba(255, 255, 255, 0.6);">No active codes yet. Generate your first code!</p>';
+                    return;
+                }
+
+                codesList.innerHTML = data.map(code => `
+                    <div class="code-item">
+                        <div class="code-info">
+                            <div class="code-value">${code.code}</div>
+                            <div class="code-company">${code.company_name}</div>
+                            <div class="code-meta">
+                                Created: ${new Date(code.created_at).toLocaleDateString()}
+                                | Used: ${code.current_usage}/${code.max_bookings}
+                                ${code.expiry_date ? '| Expires: ' + new Date(code.expiry_date).toLocaleDateString() : '| No expiry'}
+                                <span class="status-badge status-active">Active</span>
+                            </div>
+                        </div>
+                        <div class="code-actions">
+                            <button class="btn-icon" onclick="copyToClipboard('${code.code}')" title="Copy code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button class="btn-icon" onclick="disableCode('${code.id}')" title="Disable code">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading codes:', error);
+                codesList.innerHTML = `<p style="color: #F44336;">Error loading codes: ${error.message}</p>`;
+            }
+        }
+
+        // Copy to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ Code copied to clipboard!');
+            });
+        }
+
+        // Disable code
+        async function disableCode(codeId) {
+            if (!confirm('Are you sure you want to disable this code?')) return;
+
+            try {
+                const { error } = await supabase
+                    .from('access_codes')
+                    .update({ status: 'disabled' })
+                    .eq('id', codeId);
+
+                if (error) throw error;
+
+                alert('✅ Code disabled');
+                loadActiveCodes();
+            } catch (error) {
+                alert('❌ Error: ' + error.message);
+            }
+        }
+
+        // Show message
+        function showMessage(div, message, type) {
+            div.textContent = message;
+            div.className = `message show ${type}`;
+            setTimeout(() => {
+                div.classList.remove('show');
+            }, 4000);
+        }
+
+        // Load codes on page load
+        document.addEventListener('DOMContentLoaded', loadActiveCodes);
+    </script>
+</body>
+</html>
