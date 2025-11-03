@@ -1413,6 +1413,28 @@
     </style>
 </head>
 <body>
+<!-- ACCESS CODE VERIFICATION MODAL -->
+<div class="modal" id="access-code-modal">
+    <div class="modal__content" style="max-width: 500px;">
+        <div class="modal__header">
+            <button class="modal__close" onclick="closeAccessCodeModal()"><i class="fas fa-times"></i></button>
+            <h2 class="modal__title">Corporate Access Required</h2>
+            <p class="modal__subtitle">Enter your access code to book a ride</p>
+        </div>
+        <div style="padding: 0 20px;">
+            <div class="form-group">
+                <label for="accessCode">Access Code</label>
+                <input type="text" class="form-control" id="accessCode" placeholder="E.g., CORP-ABC-2024-001" maxlength="20" onkeypress="if(event.key === 'Enter') verifyAccessCode()">
+                <div class="error-message" id="codeError"></div>
+            </div>
+            <div style="background: rgba(184, 134, 11, 0.08); border: 1px solid rgba(184, 134, 11, 0.2); border-radius: 12px; padding: 16px; margin: 24px 0; color: #666; font-size: 14px; text-align: center;">
+                <strong style="color: #B8860B;">Need an access code?</strong><br>Contact: +91-9920592531
+            </div>
+            <button class="btn btn--primary" onclick="verifyAccessCode()" style="width: 100%; padding: 14px 40px; margin-top: 20px;"><i class="fas fa-check"></i> Verify Code</button>
+        </div>
+    </div>
+</div>
+
     <!-- Header -->
     <header class="header" id="header">
         <nav class="nav container">
@@ -1933,7 +1955,7 @@
                         <div class="form-group">
                             <label for="city">Select City <span class="required">*</span></label>
                             <select class="form-control" id="city" name="city" required>
-                               <option value="">Choose your city</option>
+                                <option value="">Choose your city</option>
                                <option value="mumbai">Mumbai</option>
                                <option value="delhi">Delhi</option>
                                <option value="bhubaneshwar">Bhubaneshwar</option>
@@ -2533,7 +2555,61 @@
             document.querySelectorAll('.error-message').forEach(msg => msg.remove());
             document.querySelectorAll('.form-control').forEach(field => field.classList.remove('error'));
         }
+
+// ACCESS CODE VERIFICATION
+const accessCodeModal = document.getElementById('access-code-modal');
+
+function openAccessCodeModal() {
+    accessCodeModal.classList.add('active');
+    document.getElementById('accessCode').focus();
+}
+
+function closeAccessCodeModal() {
+    accessCodeModal.classList.remove('active');
+    document.getElementById('accessCode').value = '';
+    document.getElementById('codeError').classList.remove('show');
+}
+
+accessCodeModal.addEventListener('click', function(e) {
+    if (e.target === accessCodeModal) closeAccessCodeModal();
+});
+
+async function verifyAccessCode() {
+    const code = document.getElementById('accessCode').value.trim().toUpperCase();
+    const errorDiv = document.getElementById('codeError');
+    
+    if (!code) {
+        errorDiv.textContent = 'Please enter an access code';
+        errorDiv.classList.add('show');
+        return;
+    }
+
+    try {
+        const { data, error } = await supabase
+            .from('access_codes')
+            .select('*')
+            .eq('code', code)
+            .eq('status', 'active')
+            .single();
+
+        if (error || !data) {
+            errorDiv.textContent = '❌ Invalid or expired access code';
+            errorDiv.classList.add('show');
+            return;
+        }
+
+        sessionStorage.setItem('accessCode', code);
+        sessionStorage.setItem('companyName', data.company_name);
+        errorDiv.classList.remove('show');
+        closeAccessCodeModal();
+        openBookingModal();
+        
+    } catch (error) {
+        errorDiv.textContent = '❌ Error verifying code';
+        errorDiv.classList.add('show');
+    }
+}
+
     </script>
 </body>
 </html>
-
