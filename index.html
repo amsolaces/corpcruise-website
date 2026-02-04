@@ -2176,7 +2176,19 @@
         </div>
     </footer>
 
+    <!-- Supabase client (browser) -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.min.js"></script>
+
     <script>
+        // Supabase configuration (public anon key is safe to use in browser)
+        const SUPABASE_URL = 'https://tkxbqmhklbkngjcaitic.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_IP2ZWuM5OUwK_345K807Qg_QVT4v8ej';
+
+        // Initialize Supabase client (available as window.supabase from the UMD bundle)
+        const supabaseClient = window.supabase
+            ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+            : null;
+
         // Initialize variables
         let currentStep = 1;
         const totalSteps = 3;
@@ -2325,28 +2337,77 @@
         }
 
         // Form Submission
-        function submitBooking(event) {
+        async function submitBooking(event) {
             if (event) event.preventDefault();
 
+            // Basic front-end validation before sending to Supabase
+            if (!validateStep(1) || !validateStep(2)) {
+                alert('Please complete all required fields before confirming the booking.');
+                return false;
+            }
+
             const formData = {
-                companyName: document.getElementById('company-name') ? document.getElementById('company-name').value : '',
+                // Required company & service details
+                company_name: document.getElementById('company-name') ? document.getElementById('company-name').value.trim() : '',
                 city: document.getElementById('city') ? document.getElementById('city').value : '',
-                dutyType: document.getElementById('duty-type') ? document.getElementById('duty-type').value : '',
-                vehicleCategory: selectedVehicle,
-                pickupLocation: document.getElementById('pickup-location') ? document.getElementById('pickup-location').value : '',
-                pickupDate: document.getElementById('pickup-date') ? document.getElementById('pickup-date').value : '',
-                pickupTime: document.getElementById('pickup-time') ? document.getElementById('pickup-time').value : '',
-                dropoffLocation: document.getElementById('dropoff-location') ? document.getElementById('dropoff-location').value : '',
-                passengerName: document.getElementById('passenger-name') ? document.getElementById('passenger-name').value : '',
-                passengerPhone: document.getElementById('passenger-phone') ? document.getElementById('passenger-phone').value : '',
-                passengerEmail: document.getElementById('passenger-email') ? document.getElementById('passenger-email').value : '',
-                specialRequests: document.getElementById('special-requests') ? document.getElementById('special-requests').value : ''
+                vehicle_type: selectedVehicle || '',
+                duty_type: document.getElementById('duty-type') ? document.getElementById('duty-type').value : '',
+
+                // Booker details (we’ll use passenger details as the booker)
+                booker_name: document.getElementById('passenger-name') ? document.getElementById('passenger-name').value.trim() : '',
+                booker_phone: document.getElementById('passenger-phone') ? document.getElementById('passenger-phone').value.trim() : '',
+                booker_email: document.getElementById('passenger-email') ? document.getElementById('passenger-email').value.trim() : '',
+
+                // Guest details (optional – mirror passenger for now)
+                guest_name: document.getElementById('passenger-name') ? document.getElementById('passenger-name').value.trim() : '',
+                guest_phone: document.getElementById('passenger-phone') ? document.getElementById('passenger-phone').value.trim() : '',
+
+                // Journey details
+                pickup_date: document.getElementById('pickup-date') ? document.getElementById('pickup-date').value : '',
+                pickup_time: document.getElementById('pickup-time') ? document.getElementById('pickup-time').value : '',
+                pickup_address: document.getElementById('pickup-location') ? document.getElementById('pickup-location').value.trim() : '',
+                drop_address: document.getElementById('dropoff-location') ? document.getElementById('dropoff-location').value.trim() : '',
+                pickup_city: document.getElementById('city') ? document.getElementById('city').value : '',
+                drop_city: document.getElementById('city') ? document.getElementById('city').value : '',
+
+                // Optional fields – leave null for now
+                outstation_pickup: null,
+                outstation_drop: null,
+                flight_details: null,
+                amenities: null,
+
+                // Additional details
+                special_requests: document.getElementById('special-requests') ? document.getElementById('special-requests').value.trim() : ''
             };
 
-            console.log('Booking Details:', formData);
-            alert('Booking submitted successfully! Our team will contact you shortly.');
-            closeBookingModal();
-            return false;
+            if (!supabaseClient) {
+                console.error('Supabase client is not initialized. Check SUPABASE_URL / SUPABASE_ANON_KEY.');
+                alert('Booking could not be saved. Please contact support.');
+                return false;
+            }
+
+            try {
+                // Replace 'bookings' with your actual table name if different
+                const { data, error } = await supabaseClient
+                    .from('bookings')
+                    .insert([formData])
+                    .select();
+
+                if (error) {
+                    console.error('Supabase insert error:', error);
+                    alert('Something went wrong while saving your booking. Please try again or contact support.');
+                    return false;
+                }
+
+                console.log('Booking stored in Supabase:', data);
+                alert('Your booking is confirmed and has been saved. Our team will contact you shortly.');
+                closeBookingModal();
+                return false;
+            } catch (e) {
+                console.error('Unexpected error while saving booking:', e);
+                alert('Unexpected error occurred. Please try again later.');
+                return false;
+            }
         }
 
         // Reset Form
@@ -2422,6 +2483,5 @@
 </body>
 
 </html>
-
 
 
